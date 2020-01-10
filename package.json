@@ -11,8 +11,5 @@
     "url": "git@gitlab.novaway.net:dev-team/novacookie.git"
   },
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "jest": "^24.9.0"
-  }
+  "license": "ISC"
 }
