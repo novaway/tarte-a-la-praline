@@ -1,4 +1,4 @@
-const checkServicesStatus = require("../src/utils/checkServicesStatus.js");
+const checkServicesStatus = require("../src/utils/checkServicesStatus.ts");
 
 //NEED TO RETURN FALSE
 test("false & false retun false", () => {

@@ -2,9 +2,13 @@
   "name": "@novaway/banner-cookie",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/main.js",
   "scripts": {
-    "test": "jest"
+    "postinstall": "npm run build-prod",
+    "test": "jest",
+    "clean": "rm dist/bundle.js",
+    "build-dev": "webpack -d -w --mode development",
+    "build-prod": "webpack -p --mode production"
   },
   "repository": {
     "type": "git",
@@ -13,8 +17,18 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "awesome-typescript-loader": "^5.2.1",
+    "css-loader": "^3.4.2",
+    "html-webpack-plugin": "^3.2.0",
     "jest": "^24.9.0",
-    "jest-localstorage-mock": "^2.4.0"
+    "jest-localstorage-mock": "^2.4.0",
+    "node-sass": "^4.13.0",
+    "prettier": "^1.19.1",
+    "sass-loader": "^8.0.1",
+    "style-loader": "^1.1.2",
+    "typescript": "^3.7.4",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
   },
   "jest": {
     "setupFiles": [
