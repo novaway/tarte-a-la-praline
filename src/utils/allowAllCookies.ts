@@ -1,4 +1,4 @@
-import setDisplay from "../utils/setDisplay";
+import setDisplay from "./setDisplay";
 
 const servicesList = ["ga", "hotJar"];
 

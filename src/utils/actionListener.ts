@@ -1,4 +1,4 @@
-import setDisplay from "../utils/setDisplay";
+import setDisplay from "./setDisplay";
 import allowAllCookies from "./allowAllCookies";
 import denyAllCookies from "./denyAllCookies";
 import openSelection from "./openSelection";

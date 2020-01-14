@@ -1,4 +1,4 @@
-import setDisplay from "../utils/setDisplay";
+import setDisplay from "./setDisplay";
 import CustomSelection from "../templates/CustomSelection";
 import { customActionListener } from "./actionListener";
 
@@ -9,6 +9,5 @@ const openSelection = () => {
   }
   customActionListener();
 };
-// setDisplay("js-custom-selection", "block")
 
 export default openSelection;
