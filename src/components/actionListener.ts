@@ -19,9 +19,23 @@ const actionListener = () => {
     }
   ];
 
-  actions.forEach(({ className, action }) =>
-    document.querySelector(className).addEventListener("click", action)
-  );
+  actions.forEach(({ className, action }) => {
+    const $currentAction = document.querySelector(className);
+    if ($currentAction) {
+      $currentAction.addEventListener("click", action);
+    }
+  });
 };
 
-export default actionListener;
+const customActionListener = () => {
+  const forms = document.querySelector(".custom-cookie-form");
+  if (forms !== null) {
+    console.log("444");
+    forms.addEventListener("submit", function(e) {
+      e.preventDefault();
+      console.log(e);
+    });
+  }
+};
+export { customActionListener, actionListener };
+// export default actionListener;

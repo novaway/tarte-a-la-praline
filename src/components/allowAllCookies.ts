@@ -3,8 +3,9 @@ import setDisplay from "../utils/setDisplay";
 const servicesList = ["ga", "hotJar"];
 
 const allowAllCookies = () => {
-  setDisplay("banner-cookie", "none");
   setAllLocalStoragesServicesTrue(servicesList);
+  document.location.reload();
+  setDisplay("banner-cookie", "none");
 };
 
 const setAllLocalStoragesServicesTrue = (servicesList: Array<string>) => {

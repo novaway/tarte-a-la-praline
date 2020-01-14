@@ -2,7 +2,11 @@ import checkServicesStatus from "./utils/checkServicesStatus";
 import initGa from "./services/ga";
 import initHotjar from "./services/hotjar";
 import Banner from "./templates/Banner";
-import actionListener from "./components/actionListener";
+import CustomSelection from "./templates/CustomSelection";
+import {
+  actionListener,
+  customActionListener
+} from "./components/actionListener";
 
 interface Services {
   allowGa: boolean;
@@ -25,32 +29,35 @@ const services = [
 // });
 
 function init() {
-  if (!localStorage.services) {
+  const servicesStringify: null | string = localStorage.getItem("services");
+
+  if (servicesStringify) {
+    const services: Services = JSON.parse(servicesStringify);
+    console.log(services.allowGa);
+
+    if (checkServicesStatus(services.allowGa, services.allowHotjar) === false) {
+      console.log("all services are false");
+    }
+
+    if (checkServicesStatus(services.allowGa, services.allowHotjar) === true) {
+      console.log("all services are true");
+      initGa(999999);
+      initHotjar(111111);
+    }
+  }
+
+  if (!servicesStringify) {
     console.log("localStorage is undefined");
     localStorage.setItem(
       "services",
       JSON.stringify({ allowGa: false, allowHotjar: false })
     );
   }
-  if (localStorage.services) {
-    console.log("localStorage!==undefined");
-    const services: Services =
-      JSON.parse(localStorage.getItem("services")) !== null
-        ? JSON.parse(localStorage.getItem("services"))
-        : JSON.stringify({ allowGa: false, allowHotjar: false });
 
-    if (checkServicesStatus(services.allowGa, services.allowHotjar) === false) {
-      console.log("all services are false");
-    }
-    if (checkServicesStatus(services.allowGa, services.allowHotjar) === true) {
-      console.log("all services are true");
-      initGa(123);
-      initHotjar(123);
-    }
+  const $bannerHomePage = document.getElementById("js-cookie-banner");
+  if ($bannerHomePage) {
+    $bannerHomePage.innerHTML = Banner();
   }
-
-  const theDiv = document.getElementById("js-cookie-banner");
-  theDiv.innerHTML = Banner();
 
   actionListener();
 }
@@ -58,3 +65,24 @@ function init() {
 init();
 
 export default init;
+
+// if (!localStorage.services) {
+//   console.log("localStorage is undefined");
+//   localStorage.setItem(
+//     "services",
+//     JSON.stringify({ allowGa: false, allowHotjar: false })
+//   );
+// }
+// if (localStorage.services) {
+//   console.log("localStorage!==undefined");
+//   const services: Services = JSON.parse(localStorage.getItem("services"));
+
+//   if (checkServicesStatus(services.allowGa, services.allowHotjar) === false) {
+//     console.log("all services are false");
+//   }
+//   if (checkServicesStatus(services.allowGa, services.allowHotjar) === true) {
+//     console.log("all services are true");
+//     initGa(999999);
+//     initHotjar(111111);
+//   }
+// }
