@@ -1,8 +1,11 @@
-import initGa from "../services/ga";
-import initHotjar from "../services/hotjar";
 import setDisplay from "./setDisplay";
 
-const allowCustomCookies = $services => {
+interface Services {
+  name: string;
+  callback: () => any;
+}
+
+const allowCustomCookies = ($services: Array<Services>) => {
   const $currentLocalStorage = JSON.parse(localStorage.getItem("services"));
   console.log($services);
   if ($services && $currentLocalStorage) {

@@ -6,15 +6,15 @@ import { actionListener } from "./utils/actionListener";
 import setDisplay from "./utils/setDisplay";
 
 interface Services {
-  allowGa: boolean;
-  allowHotjar: boolean;
+  name: string;
+  callback: () => any;
 }
 
 // pour test =================================================================================
 const code = "010101010";
 // ===========================================================================================
 
-let $services = [
+let $services: Array<Services> = [
   {
     name: "Ga",
     callback: () => initGa(code)
@@ -27,7 +27,7 @@ let $services = [
 
 //const pour test module =====================================================================
 
-const $moreServices = [
+const $moreServices: Array<Services> = [
   {
     name: "Matomo",
     callback: () => console.log("matomo")
@@ -40,7 +40,7 @@ const $moreServices = [
 
 //================================================================================================
 
-function init($moreServices) {
+function init($moreServices: Array<Services>) {
   const servicesStringify: null | string = localStorage.getItem("services");
   if ($moreServices) {
     $services = [...$services, ...$moreServices];
@@ -64,10 +64,13 @@ function init($moreServices) {
   }
 
   if (servicesStringify) {
-    const $servicesStorage: Services = JSON.parse(servicesStringify);
-
-    if (checkServicesStatus($servicesStorage)) {
-      $services.forEach(({ callback }) => callback);
+    const $servicesStorage = JSON.parse(servicesStringify);
+    if ($servicesStorage) {
+      if (checkServicesStatus($servicesStorage)) {
+        if ($services) {
+          $services.forEach(({ callback }) => callback);
+        }
+      }
     }
   }
 

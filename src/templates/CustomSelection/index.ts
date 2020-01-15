@@ -1,4 +1,9 @@
-function CustomSelection($services) {
+interface Services {
+  name: string;
+  callback: () => any;
+}
+
+function CustomSelection($services: Array<Services>) {
   const checkboxList = () => {
     $services.map(({ name }) => {
       return `<div>

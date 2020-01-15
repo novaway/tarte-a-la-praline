@@ -2,13 +2,18 @@ import setDisplay from "./setDisplay";
 import initGa from "../services/ga";
 import initHotjar from "../services/hotjar";
 
-const allowAllCookies = $services => {
+interface Services {
+  name: string;
+  callback: () => any;
+}
+
+const allowAllCookies = ($services: Array<Services>) => {
   setAllLocalStoragesServicesTrue($services);
   $services.forEach(({ callback }) => callback());
   setDisplay("banner-cookie", "none");
 };
 
-const setAllLocalStoragesServicesTrue = $services => {
+const setAllLocalStoragesServicesTrue = ($services: Array<Services>) => {
   let $statusServices = {};
   $services.forEach(({ name }) => {
     $statusServices = {

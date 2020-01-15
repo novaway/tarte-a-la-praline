@@ -1,6 +1,11 @@
 import setDisplay from "./setDisplay";
 
-const denyAllCookies = $services => {
+interface Services {
+  name: string;
+  callback: () => any;
+}
+
+const denyAllCookies = ($services: Array<Services>) => {
   setDisplay("banner-cookie", "none");
   setAllLocalStoragesServicesFalse($services);
 };
