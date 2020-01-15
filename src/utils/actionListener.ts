@@ -2,20 +2,21 @@ import setDisplay from "./setDisplay";
 import allowAllCookies from "./allowAllCookies";
 import denyAllCookies from "./denyAllCookies";
 import openSelection from "./openSelection";
+import allowCustomCookies from "./allowCustomCookies";
 
-const actionListener = () => {
+const actionListener = $services => {
   const actions = [
     {
       className: ".js-cookie-button-allow",
-      action: allowAllCookies
+      action: () => allowAllCookies($services)
     },
     {
       className: ".js-cookie-button-deny",
-      action: denyAllCookies
+      action: () => denyAllCookies($services)
     },
     {
       className: ".js-cookie-button-customize",
-      action: openSelection
+      action: () => openSelection($services)
     }
   ];
 
@@ -27,15 +28,24 @@ const actionListener = () => {
   });
 };
 
-const customActionListener = () => {
-  const forms = document.querySelector(".custom-cookie-form");
-  if (forms !== null) {
-    console.log("444");
-    forms.addEventListener("submit", function(e) {
+const customActionListener = $services => {
+  const $forms = document.querySelector(".custom-cookie-form");
+  if ($forms) {
+    $forms.addEventListener("submit", function(e) {
+      const $formsResult = document.querySelectorAll(
+        "input[type=checkbox]:checked"
+      );
+      let $currentLocalStorage = JSON.parse(localStorage.getItem("services"));
+      $formsResult.forEach(({ name, value }) => {
+        $currentLocalStorage = {
+          ...$currentLocalStorage,
+          [name]: value
+        };
+      });
       e.preventDefault();
-      console.log(e);
+      localStorage.services = JSON.stringify($currentLocalStorage);
+      allowCustomCookies($services);
     });
   }
 };
 export { customActionListener, actionListener };
-// export default actionListener;

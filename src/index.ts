@@ -2,63 +2,79 @@ import checkServicesStatus from "./utils/checkServicesStatus";
 import initGa from "./services/ga";
 import initHotjar from "./services/hotjar";
 import Banner from "./templates/Banner";
-import CustomSelection from "./templates/CustomSelection";
-import { actionListener, customActionListener } from "./utils/actionListener";
+import { actionListener } from "./utils/actionListener";
+import setDisplay from "./utils/setDisplay";
 
 interface Services {
   allowGa: boolean;
   allowHotjar: boolean;
 }
 
-const services = [
+// pour test =================================================================================
+const code = "010101010";
+// ===========================================================================================
+
+let $services = [
   {
-    name: "ga",
-    callback: (code: number) => initGa(code)
+    name: "Ga",
+    callback: () => initGa(code)
   },
   {
-    name: "hotjar",
-    callback: (code: number) => initHotjar(code)
+    name: "Hotjar",
+    callback: () => initHotjar(code)
   }
 ];
 
-// initCookie({
-//   matomo: () => alert("test"),
-// });
+//const pour test module =====================================================================
 
-function init() {
+const $moreServices = [
+  {
+    name: "Matomo",
+    callback: () => console.log("matomo")
+  },
+  {
+    name: "TestServices",
+    callback: () => console.log("testServices")
+  }
+];
+
+//================================================================================================
+
+function init($moreServices) {
   const servicesStringify: null | string = localStorage.getItem("services");
-
-  if (servicesStringify) {
-    const services: Services = JSON.parse(servicesStringify);
-    console.log(services.allowGa);
-
-    if (checkServicesStatus(services.allowGa, services.allowHotjar) === false) {
-      console.log("all services are false");
-    }
-
-    if (checkServicesStatus(services.allowGa, services.allowHotjar) === true) {
-      console.log("all services are true");
-      initGa(999999);
-      initHotjar(111111);
-    }
+  if ($moreServices) {
+    $services = [...$services, ...$moreServices];
   }
 
   if (!servicesStringify) {
-    console.log("localStorage is undefined");
-    localStorage.setItem(
-      "services",
-      JSON.stringify({ allowGa: false, allowHotjar: false })
-    );
+    setDisplay("js-custom-selection", "block");
+    setDisplay("banner-cookie", "block");
+    let $defaultStatusServices = {};
+    $services.forEach(({ name }) => {
+      $defaultStatusServices = {
+        ...$defaultStatusServices,
+        [name]: false
+      };
+    });
+    localStorage.setItem("services", JSON.stringify($defaultStatusServices));
+    const $bannerHomePage = document.getElementById("js-cookie-banner");
+    if ($bannerHomePage) {
+      $bannerHomePage.innerHTML = Banner();
+    }
   }
 
-  const $bannerHomePage = document.getElementById("js-cookie-banner");
-  if ($bannerHomePage) {
-    $bannerHomePage.innerHTML = Banner();
+  if (servicesStringify) {
+    const $servicesStorage: Services = JSON.parse(servicesStringify);
+
+    if (checkServicesStatus($servicesStorage)) {
+      $services.forEach(({ callback }) => callback);
+    }
   }
 
-  actionListener();
+  actionListener($services);
 }
 
-init();
+init($moreServices);
 
 export default init;
+export { $services };

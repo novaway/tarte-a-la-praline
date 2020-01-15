@@ -1,20 +1,19 @@
 import setDisplay from "./setDisplay";
 
-const servicesList = ["ga", "hotJar"];
-
-const denyAllCookies = () => {
+const denyAllCookies = $services => {
   setDisplay("banner-cookie", "none");
-  setAllLocalStoragesServicesFalse(servicesList);
+  setAllLocalStoragesServicesFalse($services);
 };
 
-const setAllLocalStoragesServicesFalse = (servicesList: Array<string>) => {
-  servicesList.forEach(
-    service =>
-      (localStorage.services = JSON.stringify({
-        allowGa: false,
-        allowHotjar: false
-      }))
-  );
+const setAllLocalStoragesServicesFalse = $services => {
+  let $statusServices = {};
+  $services.forEach(({ name }) => {
+    $statusServices = {
+      ...$statusServices,
+      [name]: false
+    };
+  });
+  localStorage.setItem("services", JSON.stringify($statusServices));
 };
 
 export default denyAllCookies;
