@@ -3,8 +3,9 @@ import allowAllCookies from "./allowAllCookies";
 import denyAllCookies from "./denyAllCookies";
 import openSelection from "./openSelection";
 import allowCustomCookies from "./allowCustomCookies";
+import { Services } from "../type";
 
-const actionListener = $services => {
+const actionListener = ($services: Array<Services>) => {
   const actions = [
     {
       className: ".js-cookie-button-allow",
@@ -28,7 +29,7 @@ const actionListener = $services => {
   });
 };
 
-const customActionListener = $services => {
+const customActionListener = ($services: Array<Services>) => {
   const $forms = document.querySelector(".custom-cookie-form");
   if ($forms) {
     $forms.addEventListener("submit", function(e) {
@@ -39,7 +40,7 @@ const customActionListener = $services => {
       $formsResult.forEach(({ name, value }) => {
         $currentLocalStorage = {
           ...$currentLocalStorage,
-          [name]: value
+          [name]: JSON.parse(value)
         };
       });
       e.preventDefault();

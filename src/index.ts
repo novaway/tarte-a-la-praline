@@ -4,11 +4,7 @@ import initHotjar from "./services/hotjar";
 import Banner from "./templates/Banner";
 import { actionListener } from "./utils/actionListener";
 import setDisplay from "./utils/setDisplay";
-
-interface Services {
-  name: string;
-  callback: () => any;
-}
+import { Services } from "./type";
 
 // pour test =================================================================================
 const code = "010101010";

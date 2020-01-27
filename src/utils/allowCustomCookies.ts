@@ -1,13 +1,8 @@
 import setDisplay from "./setDisplay";
-
-interface Services {
-  name: string;
-  callback: () => any;
-}
+import { Services } from "../type";
 
 const allowCustomCookies = ($services: Array<Services>) => {
   const $currentLocalStorage = JSON.parse(localStorage.getItem("services"));
-  console.log($services);
   if ($services && $currentLocalStorage) {
     $services.forEach(({ name, callback }) => {
       if ($currentLocalStorage[name]) {

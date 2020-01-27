@@ -1,16 +1,12 @@
 import setDisplay from "./setDisplay";
-
-interface Services {
-  name: string;
-  callback: () => any;
-}
+import { Services } from "../type";
 
 const denyAllCookies = ($services: Array<Services>) => {
   setDisplay("banner-cookie", "none");
   setAllLocalStoragesServicesFalse($services);
 };
 
-const setAllLocalStoragesServicesFalse = $services => {
+const setAllLocalStoragesServicesFalse = ($services: Array<Services>) => {
   let $statusServices = {};
   $services.forEach(({ name }) => {
     $statusServices = {

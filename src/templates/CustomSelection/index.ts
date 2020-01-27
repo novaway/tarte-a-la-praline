@@ -1,7 +1,4 @@
-interface Services {
-  name: string;
-  callback: () => any;
-}
+import { Services } from "../../type";
 
 function CustomSelection($services: Array<Services>) {
   const checkboxList = () => {

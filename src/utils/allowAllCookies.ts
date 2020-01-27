@@ -1,11 +1,7 @@
 import setDisplay from "./setDisplay";
 import initGa from "../services/ga";
 import initHotjar from "../services/hotjar";
-
-interface Services {
-  name: string;
-  callback: () => any;
-}
+import { Services } from "../type";
 
 const allowAllCookies = ($services: Array<Services>) => {
   setAllLocalStoragesServicesTrue($services);
