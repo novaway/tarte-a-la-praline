@@ -23,7 +23,7 @@ function CustomSelection($services: Array<Services>) {
         )
         .join("")}   
       <div>
-        <button type="submit" class="js-button-save-custom">Valider</button>
+        <button type="submit" class="cookie-banner-button js-button-save-custom" data-micromodal-close>Valider</button>
       </div>
   </form>
 </div>

@@ -17,12 +17,12 @@ const config = {
       },
       {
         test: /\.scss$/,
-        use: ["style-loader", "css-loader", "sass-loader"]
+        use: ["style-loader","css-loader","sass-loader"],
       }
     ]
   },
   resolve: {
-    extensions: [".tsx", ".ts", ".js"]
+    extensions: [".tsx", ".ts", ".js", ".scss"]
   }
 };
 
