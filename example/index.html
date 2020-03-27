@@ -8,7 +8,19 @@
   </head>
   <body>
     <div id="js-cookie-banner"></div>
-    <div id="js-custom-selection"></div>
+    <div class="modal micromodal-slide" id="js-cookie-modal" aria-hidden="true">
+      <div class="modal-overlay" tabindex="-1" data-micromodal-close>
+        <div class="modal-container" role="dialog" aria-modal="true">
+          <header class="modal-header">
+            <h2 class="modal-title">Gestion des cookies</h2>
+            <button class="modal-close" aria-label="Close modal" data-micromodal-close></button>
+          </header>
+          <div class="modal-content">
+            <div id="js-custom-selection"></div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="../dist/main.js"></script>
   </body>
 </html>

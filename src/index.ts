@@ -1,3 +1,4 @@
+import MicroModal from 'micromodal';
 import checkServicesStatus from "./utils/checkServicesStatus";
 import initGa from "./services/ga";
 import initHotjar from "./services/hotjar";
@@ -5,6 +6,8 @@ import Banner from "./templates/Banner";
 import { actionListener } from "./utils/actionListener";
 import setDisplay from "./utils/setDisplay";
 import { Services } from "./type";
+import './scss/modal.scss';
+import './scss/cookie-banner.scss';
 
 // pour test =================================================================================
 const code = "010101010";
@@ -71,6 +74,8 @@ function init($moreServices: Array<Services>) {
   }
 
   actionListener($services);
+
+  MicroModal.init();
 }
 
 init($moreServices);
