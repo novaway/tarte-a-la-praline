@@ -1,3 +1,3 @@
-const initHotjar = (code: string | number) => console.log(code);
+const initHotjar = (code: string | number) => alert(code);
 
 export default initHotjar;

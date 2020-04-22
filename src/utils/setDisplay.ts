@@ -1,8 +1,9 @@
-const setDisplay = (id: string, status: string) => {
-  const $element = document.getElementById(id);
+const showElement = (elementId: string, display: "block" | "none") => {
+  const $element = document.getElementById(elementId);
+
   if ($element) {
-    $element.style.display = status;
+    $element.style.display = display;
   }
 };
 
-export default setDisplay;
+export default showElement;

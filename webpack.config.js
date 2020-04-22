@@ -6,24 +6,26 @@ const config = {
   entry: "./src/index.ts",
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "[name].js"
+    filename: "[name].js",
+    libraryTarget: "umd",
+    library: "cookie",
   },
   module: {
     rules: [
       {
         test: /\.ts(x)?$/,
         use: ["awesome-typescript-loader"],
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.scss$/,
-        use: ["style-loader","css-loader","sass-loader"],
-      }
-    ]
+        use: ["style-loader", "css-loader", "sass-loader"],
+      },
+    ],
   },
   resolve: {
-    extensions: [".tsx", ".ts", ".js", ".scss"]
-  }
+    extensions: [".tsx", ".ts", ".js", ".scss"],
+  },
 };
 
 module.exports = config;

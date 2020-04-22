@@ -1,3 +1,3 @@
-const initGa = (code: number | string) => console.log(code);
+const initGa = (code: number | string) => alert(code);
 
 export default initGa;
