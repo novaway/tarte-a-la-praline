@@ -11,14 +11,14 @@ import "./scss/modal.scss";
 import "./scss/cookie-banner.scss";
 import { getStorageServices } from "./utils/storage";
 
-let SERVICES: Service[] = [
+const defaultServices = (codeGa: string, codeHj: string): Service[] => [
   {
     name: "Ga",
-    callback: () => initGa("ga code"),
+    callback: () => initGa(codeGa),
   },
   {
     name: "Hotjar",
-    callback: () => initHotjar("hot code"),
+    callback: () => initHotjar(codeHj),
   },
 ];
 
@@ -47,7 +47,10 @@ function init({
   codeHj,
   customServices,
 }: NovaCookie = initialValues): void {
-  const services: Service[] = [...SERVICES, ...customServices];
+  const services: Service[] = [
+    ...defaultServices(codeGa, codeHj),
+    ...customServices,
+  ];
   const storageServices = getStorageServices();
 
   if (storageServices === null) {
@@ -60,7 +63,15 @@ function init({
   }
 }
 
-init();
+init({
+  codeGa: "le code GA",
+  codeHj: "le code HJ",
+  customServices: [
+    {
+      name: "superTest",
+      callback: () => alert("yeah"),
+    },
+  ],
+});
 
-export { SERVICES as $services };
 export default init;
