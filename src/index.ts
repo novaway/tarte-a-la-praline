@@ -63,15 +63,21 @@ function init({
   }
 }
 
-init({
-  codeGa: "le code GA",
-  codeHj: "le code HJ",
-  customServices: [
-    {
-      name: "superTest",
-      callback: () => alert("yeah"),
-    },
-  ],
-});
+// init({
+//   codeGa: "le code GA",
+//   codeHj: "le code HJ",
+//   customServices: [
+//     {
+//       name: "superTest",
+//       callback: () => alert("yeah"),
+//     },
+//   ],
+// });
+
+// @ts-ignore
+if (window.Cypress) {
+  // @ts-ignore
+  window.init = init;
+}
 
 export default init;

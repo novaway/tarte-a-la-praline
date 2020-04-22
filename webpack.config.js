@@ -23,6 +23,7 @@ const config = {
       },
     ],
   },
+  plugins: [new HtmlWebpackPlugin()],
   resolve: {
     extensions: [".tsx", ".ts", ".js", ".scss"],
   },
