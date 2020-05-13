@@ -23,7 +23,13 @@ const config = {
       },
     ],
   },
-  plugins: [new HtmlWebpackPlugin()],
+  plugins: [
+    new HtmlWebpackPlugin({
+      appMountId: "app",
+      filename: "index.html",
+      template: "example/index.html",
+    }),
+  ],
   resolve: {
     extensions: [".tsx", ".ts", ".js", ".scss"],
   },
