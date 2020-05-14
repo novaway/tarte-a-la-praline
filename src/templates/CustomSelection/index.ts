@@ -1,4 +1,5 @@
 import { Service } from "../../types";
+import { BUTTON_VALIDATION } from "../../../translation";
 
 function CustomSelection(services: Service[]) {
   const checkboxList = () => {
@@ -22,7 +23,7 @@ function CustomSelection(services: Service[]) {
             )
             .join("")}
           <div>
-            <button type="submit" class="cookie-banner-button js-button-save-custom" data-micromodal-close>Valider</button>
+            <button type="submit" class="cookie-banner-button js-button-save-custom" data-micromodal-close>${BUTTON_VALIDATION}</button>
           </div>
       </form>
     </div>

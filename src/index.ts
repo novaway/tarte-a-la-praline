@@ -3,6 +3,7 @@ import MicroModal from "micromodal";
 import initGa from "./services/ga";
 import initHotjar from "./services/hotjar";
 import Banner from "./templates/Banner";
+import Modal from "./templates/Modal";
 import { actionListener } from "./utils/actionListener";
 import showElement from "./utils/setDisplay";
 import { Service, StorageServices } from "./types";
@@ -21,11 +22,26 @@ const defaultServices = (codeGa: string, codeHj: string): Service[] => [
     callback: () => initHotjar(codeHj),
   },
 ];
+// @ts-ignore
+document.body.onload = addCookieDiv();
+
+function addCookieDiv() {
+  const $cookieBanner = document.createElement("div");
+  $cookieBanner.id = "js-cookie-banner";
+  document.body.appendChild($cookieBanner);
+  const $modalCookie = document.createElement("div");
+  $modalCookie.id = "js-cookie-modal";
+  $modalCookie.classList.add("modal", "micromodal-slide");
+  $modalCookie.setAttribute("aria-hidden", "true");
+  document.body.appendChild($modalCookie);
+}
 
 const showCookieBanner = (): void => {
   const $cookieBanner = document.getElementById("js-cookie-banner");
+  const $modalCookie = document.getElementById("js-cookie-modal");
 
   if ($cookieBanner) {
+    $modalCookie.innerHTML = Modal();
     $cookieBanner.innerHTML = Banner();
   }
 };
@@ -54,8 +70,8 @@ function init({
   const storageServices = getStorageServices();
 
   if (storageServices === null) {
-    showElement("js-custom-selection", "block");
-    showElement("banner-cookie", "block");
+    // showElement("js-custom-selection", "block");
+    // showElement("banner-cookie", "block");
     showCookieBanner();
 
     actionListener(services);
@@ -63,16 +79,16 @@ function init({
   }
 }
 
-// init({
-//   codeGa: "le code GA",
-//   codeHj: "le code HJ",
-//   customServices: [
-//     {
-//       name: "superTest",
-//       callback: () => alert("yeah"),
-//     },
-//   ],
-// });
+init({
+  codeGa: "le code GA",
+  codeHj: "1",
+  customServices: [
+    {
+      name: "superTest",
+      callback: () => alert("yeah"),
+    },
+  ],
+});
 
 // @ts-ignore
 if (window.Cypress) {
