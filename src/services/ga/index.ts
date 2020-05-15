@@ -1,13 +1,14 @@
+declare var ga: Function;
+
 const initGa = (code: number | string) => {
-  (function(i, s, o, g, r, a, m) {
+  (function(i, s, o, g, r, a, m): void {
     i["GoogleAnalyticsObject"] = r;
     (i[r] =
       i[r] ||
       function() {
         (i[r].q = i[r].q || []).push(arguments);
       }),
-      // @ts-ignore
-      (i[r].l = 1 * new Date());
+      (i[r].l = 1 * (new Date() as any));
     (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
     a.async = 1;
     a.src = g;
@@ -19,13 +20,10 @@ const initGa = (code: number | string) => {
     "https://www.google-analytics.com/analytics.js",
     "ga"
   );
-  // @ts-ignore
+
   ga("create", code, "auto");
-  // @ts-ignore
   ga("require", "displayfeatures");
-  // @ts-ignore
   ga("set", "anonymizeIp", true);
-  // @ts-ignore
   ga("send", "pageview");
 };
 
