@@ -26,6 +26,7 @@
     "awesome-typescript-loader": "^5.2.1",
     "css-loader": "^3.4.2",
     "css-modules-typescript-loader": "^2.0.1",
+    "cypress-localstorage-commands": "^1.1.9",
     "html-webpack-plugin": "^3.2.0",
     "jest": "^24.9.0",
     "jest-localstorage-mock": "^2.4.0",
