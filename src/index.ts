@@ -7,10 +7,11 @@ import Modal from "./templates/Modal";
 import { actionListener } from "./utils/actionListener";
 import showElement from "./utils/setDisplay";
 import { Service, StorageServices } from "./types";
-
 import "./scss/modal.scss";
 import "./scss/cookie-banner.scss";
 import { getStorageServices } from "./utils/storage";
+
+const __DEV__ = process.env.NODE_ENV !== "production";
 
 const defaultServices = (codeGa: string, codeHj: string): Service[] => [
   {
@@ -79,21 +80,21 @@ function init({
   }
 }
 
-init({
-  codeGa: "le code GA",
-  codeHj: "1",
-  customServices: [
-    {
-      name: "superTest",
-      callback: () => alert("yeah"),
-    },
-  ],
-});
+if (__DEV__) {
+  init({
+    codeGa: "le code GA",
+    codeHj: "1",
+    customServices: [
+      {
+        name: "superTest",
+        callback: () => alert("yeah"),
+      },
+    ],
+  });
+}
 
-// @ts-ignore
-if (window.Cypress) {
-  // @ts-ignore
-  window.init = init;
+if ((window as any).Cypress) {
+  (window as any).init = init;
 }
 
 export default init;

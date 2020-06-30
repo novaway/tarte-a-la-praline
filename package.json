@@ -19,6 +19,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/node": "^14.0.14",
     "micromodal": "^0.4.6",
     "typings-for-css-modules-loader": "^1.7.0"
   },
