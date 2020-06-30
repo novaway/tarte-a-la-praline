@@ -5,6 +5,7 @@
   "main": "./dist/main.js",
   "scripts": {
     "postinstall": "npm run build-prod",
+    "start": "concurrently \"npm run build-dev\" \"npm run serve\"",
     "test": "jest",
     "clean": "rm dist/bundle.js",
     "build-dev": "webpack -d -w --mode development",
@@ -25,6 +26,7 @@
   },
   "devDependencies": {
     "awesome-typescript-loader": "^5.2.1",
+    "concurrently": "^5.2.0",
     "css-loader": "^3.4.2",
     "css-modules-typescript-loader": "^2.0.1",
     "cypress-localstorage-commands": "^1.1.9",
