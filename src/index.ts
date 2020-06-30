@@ -97,4 +97,4 @@ if ((window as any).Cypress) {
   (window as any).init = init;
 }
 
-export default init;
+export { init };
