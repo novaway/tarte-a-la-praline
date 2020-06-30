@@ -8,7 +8,6 @@
     "dist"
   ],
   "scripts": {
-    "postinstall": "npm run build-prod",
     "start": "concurrently \"npm run build-dev\" \"npm run serve\"",
     "test": "jest",
     "clean": "rm dist/bundle.js",
