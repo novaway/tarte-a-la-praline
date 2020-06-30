@@ -1,5 +1,5 @@
 {
-  "name": "@novaway/banner-cookie",
+  "name": "@novaway/tarte-a-la-praline",
   "version": "0.0.1",
   "description": "",
   "main": "./dist/main.js",
@@ -17,8 +17,8 @@
     "type": "git",
     "url": "git@gitlab.novaway.net:dev-team/novacookie.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Novaway",
+  "license": "Apache-2.0",
   "dependencies": {
     "@types/node": "^14.0.14",
     "micromodal": "^0.4.6",
