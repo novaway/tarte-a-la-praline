@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@gitlab.novaway.net:dev-team/novacookie.git"
+    "url": "git@github.com:novaway/tarte-a-la-praline.git"
   },
   "author": "Novaway",
   "license": "Apache-2.0",
