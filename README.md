@@ -2,7 +2,7 @@
 
 <a href="https://www.npmjs.com/package/@novaway/tarte-a-la-praline"><img src="https://img.shields.io/npm/v/@novaway/tarte-a-la-praline.svg" alt="npm Version"></a>
 <a href="https://npmcharts.com/compare/@novaway/tarte-a-la-praline?minimal=true"><img src="https://img.shields.io/npm/dw/@novaway/tarte-a-la-praline.svg" alt="npm Downloads"></a>
-<a href="https://packagequality.com/#?package=@google%2Fclasp"><img src="https://npm.packagequality.com/shield/@google%2Fclasp.svg" alt="Package Quality"></a>
+<a href="https://packagequality.com/#?package=@novaway%2Ftarte-a-la-praline"><img src="https://npm.packagequality.com/shield/@novaway%2Ftarte-a-la-praline.svg" alt="Package Quality"></a>
 <a href="https://david-dm.org/novaway/tarte-a-la-praline" title="dependencies status"><img src="https://david-dm.org/novaway/tarte-a-la-praline/status.svg"/></a>
 
 > TODO
