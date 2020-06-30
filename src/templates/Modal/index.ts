@@ -1,4 +1,4 @@
-import { HEADER_MODAL } from "../../../translation";
+import { HEADER_MODAL } from "../../translation";
 
 const Modal = () => `
    

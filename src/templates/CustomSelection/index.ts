@@ -1,5 +1,5 @@
 import { Service } from "../../types";
-import { BUTTON_VALIDATION } from "../../../translation";
+import { BUTTON_VALIDATION } from "../../translation";
 
 function CustomSelection(services: Service[]) {
   const checkboxList = () => {

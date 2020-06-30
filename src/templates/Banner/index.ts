@@ -3,7 +3,7 @@ import {
   BUTTON_CUSTOM,
   BUTTON_DECLINE,
   BUTTON_AGREE,
-} from "../../../translation";
+} from "../../translation";
 
 const Banner = () => `
      <div id="banner-cookie" class="cookie-banner">
