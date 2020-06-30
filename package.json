@@ -1,6 +1,6 @@
 {
   "name": "@novaway/banner-cookie",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "./dist/main.js",
   "scripts": {
@@ -30,10 +30,10 @@
     "html-webpack-plugin": "^3.2.0",
     "jest": "^24.9.0",
     "jest-localstorage-mock": "^2.4.0",
-    "node-sass": "^4.13.0",
+    "node-sass": "^4.14.1",
     "prettier": "^1.19.1",
     "sass-loader": "^8.0.1",
-    "serve": "^11.3.0",
+    "serve": "^11.3.2",
     "style-loader": "^1.1.2",
     "typescript": "^3.7.4",
     "webpack": "^4.41.5",
