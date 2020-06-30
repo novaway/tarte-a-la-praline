@@ -1,7 +1,9 @@
-const checkServicesStatus = (storageList: any): boolean => {
+const checkServicesStatus = (storageList: any[]): boolean => {
   if (storageList) {
-    Object.values(storageList).some(value => value == true);
+    return Object.values(storageList).some((value: boolean) => value === true);
   }
+
+  return false;
 };
 
 export default checkServicesStatus;

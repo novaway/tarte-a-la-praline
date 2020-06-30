@@ -1,14 +1,15 @@
-import setDisplay from "./setDisplay";
 import CustomSelection from "../templates/CustomSelection";
 import { customActionListener } from "./actionListener";
-import { Services } from "../type";
+import { Service } from "../types";
+import showElement from "./setDisplay";
 
-const openSelection = ($services: Array<Services>) => {
+const openSelection = (services: Service[]): void => {
   const customSelectionView = document.getElementById("js-custom-selection");
+
   if (customSelectionView) {
-    customSelectionView.innerHTML = CustomSelection($services);
-    customActionListener($services);
-    setDisplay("js-custom-selection", "block");
+    customSelectionView.innerHTML = CustomSelection(services);
+    customActionListener(services);
+    showElement("js-custom-selection", "block");
   }
 };
 

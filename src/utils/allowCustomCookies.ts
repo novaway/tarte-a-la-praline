@@ -1,17 +1,14 @@
-import setDisplay from "./setDisplay";
-import { Services } from "../type";
+import { Service, StorageServices } from "../types";
+import showElement from "./setDisplay";
+import { getStorageServices } from "./storage";
 
-const allowCustomCookies = ($services: Array<Services>) => {
-  const $currentLocalStorage = JSON.parse(localStorage.getItem("services"));
-  if ($services && $currentLocalStorage) {
-    $services.forEach(({ name, callback }) => {
-      if ($currentLocalStorage[name]) {
-        callback();
-      }
-    });
-  }
-  setDisplay("js-custom-selection", "none");
-  setDisplay("banner-cookie", "none");
+const allowCustomCookies = (services: Service[]): void => {
+  services.forEach(({ callback }) => {
+    callback();
+  });
+
+  showElement("js-custom-selection", "none");
+  showElement("banner-cookie", "none");
 };
 
 export default allowCustomCookies;

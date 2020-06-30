@@ -1,84 +1,99 @@
-import MicroModal from 'micromodal';
-import checkServicesStatus from "./utils/checkServicesStatus";
+// @ts-ignore
+import MicroModal from "micromodal";
 import initGa from "./services/ga";
 import initHotjar from "./services/hotjar";
 import Banner from "./templates/Banner";
+import Modal from "./templates/Modal";
 import { actionListener } from "./utils/actionListener";
-import setDisplay from "./utils/setDisplay";
-import { Services } from "./type";
-import './scss/modal.scss';
-import './scss/cookie-banner.scss';
+import showElement from "./utils/setDisplay";
+import { Service, StorageServices } from "./types";
 
-// pour test =================================================================================
-const code = "010101010";
-// ===========================================================================================
+import "./scss/modal.scss";
+import "./scss/cookie-banner.scss";
+import { getStorageServices } from "./utils/storage";
 
-let $services: Array<Services> = [
+const defaultServices = (codeGa: string, codeHj: string): Service[] => [
   {
     name: "Ga",
-    callback: () => initGa(code)
+    callback: () => initGa(codeGa),
   },
   {
     name: "Hotjar",
-    callback: () => initHotjar(code)
-  }
-];
-
-//const pour test module =====================================================================
-
-const $moreServices: Array<Services> = [
-  {
-    name: "Matomo",
-    callback: () => console.log("matomo")
+    callback: () => initHotjar(codeHj),
   },
-  {
-    name: "TestServices",
-    callback: () => console.log("testServices")
-  }
 ];
+// @ts-ignore
+document.body.onload = addCookieDiv();
 
-//================================================================================================
-
-function init($moreServices: Array<Services>) {
-  const servicesStringify: null | string = localStorage.getItem("services");
-  if ($moreServices) {
-    $services = [...$services, ...$moreServices];
-  }
-
-  if (!servicesStringify) {
-    setDisplay("js-custom-selection", "block");
-    setDisplay("banner-cookie", "block");
-    let $defaultStatusServices = {};
-    $services.forEach(({ name }) => {
-      $defaultStatusServices = {
-        ...$defaultStatusServices,
-        [name]: false
-      };
-    });
-    localStorage.setItem("services", JSON.stringify($defaultStatusServices));
-    const $bannerHomePage = document.getElementById("js-cookie-banner");
-    if ($bannerHomePage) {
-      $bannerHomePage.innerHTML = Banner();
-    }
-  }
-
-  if (servicesStringify) {
-    const $servicesStorage = JSON.parse(servicesStringify);
-    if ($servicesStorage) {
-      if (checkServicesStatus($servicesStorage)) {
-        if ($services) {
-          $services.forEach(({ callback }) => callback);
-        }
-      }
-    }
-  }
-
-  actionListener($services);
-
-  MicroModal.init();
+function addCookieDiv() {
+  const $cookieBanner = document.createElement("div");
+  $cookieBanner.id = "js-cookie-banner";
+  document.body.appendChild($cookieBanner);
+  const $modalCookie = document.createElement("div");
+  $modalCookie.id = "js-cookie-modal";
+  $modalCookie.classList.add("modal", "micromodal-slide");
+  $modalCookie.setAttribute("aria-hidden", "true");
+  document.body.appendChild($modalCookie);
 }
 
-init($moreServices);
+const showCookieBanner = (): void => {
+  const $cookieBanner = document.getElementById("js-cookie-banner");
+  const $modalCookie = document.getElementById("js-cookie-modal");
+
+  if ($cookieBanner) {
+    $modalCookie.innerHTML = Modal();
+    $cookieBanner.innerHTML = Banner();
+  }
+};
+
+interface NovaCookie {
+  codeGa?: string;
+  codeHj?: string;
+  customServices?: Service[];
+}
+
+const initialValues = {
+  codeGa: null,
+  codeHj: null,
+  customServices: [],
+};
+
+function init({
+  codeGa,
+  codeHj,
+  customServices,
+}: NovaCookie = initialValues): void {
+  const services: Service[] = [
+    ...defaultServices(codeGa, codeHj),
+    ...customServices,
+  ];
+  const storageServices = getStorageServices();
+
+  if (storageServices === null) {
+    // showElement("js-custom-selection", "block");
+    // showElement("banner-cookie", "block");
+    showCookieBanner();
+
+    actionListener(services);
+    MicroModal.init();
+  }
+}
+
+init({
+  codeGa: "le code GA",
+  codeHj: "1",
+  customServices: [
+    {
+      name: "superTest",
+      callback: () => alert("yeah"),
+    },
+  ],
+});
+
+// @ts-ignore
+if (window.Cypress) {
+  // @ts-ignore
+  window.init = init;
+}
 
 export default init;
-export { $services };
