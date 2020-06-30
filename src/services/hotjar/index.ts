@@ -1,5 +1,6 @@
-const initHotjar = (code: string | number) => {
-  (function(h, o, t, j, a, r) {
+const initHotjar = (code: string): void => {
+  // @ts-ignore
+  (function(h: any, o: any, t: any, j: any, a: any, r: any): void {
     h.hj =
       h.hj ||
       function() {
