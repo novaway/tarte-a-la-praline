@@ -6,7 +6,7 @@ import Banner from "./templates/Banner";
 import Modal from "./templates/Modal";
 import { actionListener } from "./utils/actionListener";
 import showElement from "./utils/setDisplay";
-import { Service, StorageServices } from "./types";
+import { Service, StorageServices, Language } from "./types";
 import "./scss/modal.scss";
 import "./scss/cookie-banner.scss";
 import { getStorageServices } from "./utils/storage";
@@ -51,37 +51,42 @@ interface NovaCookie {
   codeGa?: string;
   codeHj?: string;
   customServices?: Service[];
+  language?: Language;
 }
 
 const initialValues = {
   codeGa: null,
   codeHj: null,
-  customServices: [],
+  customServices: null,
+  language: null,
 };
 
 function initTarteALaPraline({
   codeGa,
   codeHj,
   customServices,
+  language,
 }: NovaCookie = initialValues): void {
+  if (language) {
+    (window as any).tarteALaPralineLanguage = language;
+  }
+
   const services: Service[] = [
     ...defaultServices(codeGa, codeHj),
-    ...customServices,
+    ...(customServices ?? []),
   ];
   const storageServices = getStorageServices();
 
   if (storageServices === null) {
-    // showElement("js-custom-selection", "block");
-    // showElement("banner-cookie", "block");
     showCookieBanner();
-
     actionListener(services);
     MicroModal.init();
   }
 }
 
 if (__DEV__) {
-  init({
+  require("../translations/fr");
+  initTarteALaPraline({
     codeGa: "le code GA",
     codeHj: "1",
     customServices: [

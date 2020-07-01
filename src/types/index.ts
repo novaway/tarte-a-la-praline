@@ -6,3 +6,12 @@ export interface Service {
 export interface StorageServices {
   [key: string]: boolean;
 }
+
+export interface Language {
+  TEXT_BANNER: string;
+  BUTTON_AGREE: string;
+  BUTTON_DECLINE: string;
+  BUTTON_CUSTOM: string;
+  BUTTON_VALIDATION: string;
+  HEADER_MODAL: string;
+}

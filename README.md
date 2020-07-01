@@ -30,7 +30,8 @@ npm i @novaway/tarte-a-la-praline
 Then import the module in your application :
 
 ```
-import { init } from '@novaway/tarte-a-la-praline';
+import '@novaway/tarte-a-la-praline/translations/en';
+import initTarteALaPraline from '@novaway/tarte-a-la-praline';
 ```
 
 ## Basic Usage
@@ -38,11 +39,12 @@ import { init } from '@novaway/tarte-a-la-praline';
 **Example**
 
 ```
+import '@novaway/tarte-a-la-praline/translations/en';
 import initTarteALaPraline from '@novaway/tarte-a-la-praline';
 
 initTarteALaPraline({
-  codeGa: "XXXX",
-  codeHj: "XXXX"
+  codeGa: string,
+  codeHj: string
 })
 ```
 
@@ -53,11 +55,10 @@ The current version includes a default configuration for the following services 
 You can add custom service. Here is an example for **Matomo** :
 
 ```
+import '@novaway/tarte-a-la-praline/translations/en';
 import initTarteALaPraline from '@novaway/tarte-a-la-praline';
 
 initTarteALaPraline({
-  codeGa: "XXXX",
-  codeHj: "XXXX",
   customServices: [
     {
       name: "matomo",
@@ -77,6 +78,28 @@ const initMatomoTagManager = () => {
   s.parentNode.insertBefore(g,s);
 };
 ```
+
+**i18n**
+
+This module comes with EN and FR translations that should be imported before the init function.
+
+```
+import '@novaway/tarte-a-la-praline/translations/en'; // en or fr
+import initTarteALaPraline from '@novaway/tarte-a-la-praline';
+
+initTarteALaPraline({
+  codeGa: "XXXX",
+  language: {
+    TEXT_BANNER: string;
+    BUTTON_AGREE: string;
+    BUTTON_DECLINE: string;
+    BUTTON_CUSTOM: string;
+    BUTTON_VALIDATION: string;
+    HEADER_MODAL: string;
+  }
+});
+```
+
 ## Browser compatibility
 
 To be tested
@@ -98,6 +121,14 @@ npm run build-prod
 ### Testing
 
 TODO
+
+## TODO
+
+- [x] Translations module
+- [ ] Adding possibility to customize default CSS
+- [ ] Zero dependencies
+- [ ] Verify browser compatibility
+- [ ] Tests
 
 ## Contributing
 
