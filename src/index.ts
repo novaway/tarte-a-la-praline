@@ -59,7 +59,7 @@ const initialValues = {
   customServices: [],
 };
 
-function init({
+function initTarteALaPraline({
   codeGa,
   codeHj,
   customServices,
@@ -94,7 +94,7 @@ if (__DEV__) {
 }
 
 if ((window as any).Cypress) {
-  (window as any).init = init;
+  (window as any).initTarteALaPraline = initTarteALaPraline;
 }
 
-export { init };
+export default initTarteALaPraline;

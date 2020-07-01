@@ -28,11 +28,9 @@ Then import module :
 **Example**
 
 ```
-import {
-  init as initBannerCookie
-} from '@novaway/tarte-a-la-praline';
+import initTarteALaPraline from '@novaway/tarte-a-la-praline';
 
-initBannerCookie({
+initTarteALaPraline({
   codeGa: "XXXX",
   codeHj: "XXXX"
 })
@@ -41,11 +39,9 @@ initBannerCookie({
 Default included services is [Google Analytics](https://analytics.google.com/analytics/web/) and [Hotjar](https://www.hotjar.com/). You can add custom service like this, example with **Matomo** :
 
 ```
-import {
-  init as initBannerCookie
-} from '@novaway/tarte-a-la-praline';
+import initTarteALaPraline from '@novaway/tarte-a-la-praline';
 
-initBannerCookie({
+initTarteALaPraline({
   codeGa: "XXXX",
   codeHj: "XXXX",
   customServices: [
