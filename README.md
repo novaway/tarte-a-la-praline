@@ -104,10 +104,6 @@ initTarteALaPraline({
 
 To be tested
 
-## Commands
-
-To be tested
-
 ## Development
 
 If you want to modify this library, you can run it with the following command.
