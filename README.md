@@ -23,7 +23,10 @@ First download package :
 
 Then import module :
 
-`import { init } from '@novaway/tarte-a-la-praline';`
+```
+import '@novaway/tarte-a-la-praline/translations/en';
+import initTarteALaPraline from '@novaway/tarte-a-la-praline';
+```
 
 ## Basic Usage
 
