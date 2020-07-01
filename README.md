@@ -30,22 +30,22 @@ Then import module :
 **Example**
 
 ```
+import '@novaway/tarte-a-la-praline/translations/en';
 import initTarteALaPraline from '@novaway/tarte-a-la-praline';
 
 initTarteALaPraline({
-  codeGa: "XXXX",
-  codeHj: "XXXX"
+  codeGa: string,
+  codeHj: string
 })
 ```
 
 Default included services is [Google Analytics](https://analytics.google.com/analytics/web/) and [Hotjar](https://www.hotjar.com/). You can add custom service like this, example with **Matomo** :
 
 ```
+import '@novaway/tarte-a-la-praline/translations/en';
 import initTarteALaPraline from '@novaway/tarte-a-la-praline';
 
 initTarteALaPraline({
-  codeGa: "XXXX",
-  codeHj: "XXXX",
   customServices: [
     {
       name: "matomo",
@@ -66,6 +66,26 @@ const initMatomoTagManager = () => {
 };
 ```
 
+**i18n**
+
+This module comming with EN and FR translations and need to be imported defore init function. You can add custom translations by adding language parameters :
+
+```
+import initTarteALaPraline from '@novaway/tarte-a-la-praline';
+
+initTarteALaPraline({
+  codeGa: "XXXX",
+  language: {
+    TEXT_BANNER: string;
+    BUTTON_AGREE: string;
+    BUTTON_DECLINE: string;
+    BUTTON_CUSTOM: string;
+    BUTTON_VALIDATION: string;
+    HEADER_MODAL: string;
+  }
+});
+```
+
 ## Commands
 
 Running dev environment :
@@ -79,3 +99,10 @@ Build production environment :
 ## Browser compatibility
 
 TODO
+
+## TODO
+
+- [x] translations module
+- [ ] Adding possibility to custom default CSS
+- [ ] Zero dependencies
+- [ ] Tests
