@@ -1,27 +1,33 @@
-# Tarte à la praline - Enable user tracking services helper library
+# Tarte à la praline - User cookie management
 
 <a href="https://www.npmjs.com/package/@novaway/tarte-a-la-praline"><img src="https://img.shields.io/npm/v/@novaway/tarte-a-la-praline.svg" alt="npm Version"></a>
 <a href="https://npmcharts.com/compare/@novaway/tarte-a-la-praline?minimal=true"><img src="https://img.shields.io/npm/dw/@novaway/tarte-a-la-praline.svg" alt="npm Downloads"></a>
-<a href="https://packagequality.com/#?package=@novaway%2Ftarte-a-la-praline"><img src="https://npm.packagequality.com/shield/@novaway%2Ftarte-a-la-praline.svg" alt="Package Quality"></a>
 <a href="https://david-dm.org/novaway/tarte-a-la-praline" title="dependencies status"><img src="https://david-dm.org/novaway/tarte-a-la-praline/status.svg"/></a>
 
-> TODO
+_**Tarte à la praline**_ is a lightweight library that allow users to manage tracking cookies in a way that is compliant with the european [Directive 2009/136/EC](https://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ:L:2009:337:0011:0036:en:PDF) also refered to as _"The cookie Law"_.
 
-**Not production ready**
+![screenshot of the cookie banner with an alert box](doc/screenshot.png)
+
+_Tarte à la praline_ is quite opinionated to ensure its lightness. If you are looking for a more complete implementation, we recommand you use [tarteaucitron.js](https://github.com/AmauriC/tarteaucitron.js).
 
 ## Features
 
-TODO
+- Native configuration for Google Analytics and Hotjar
+- Ability to add custom configuration for other trackers
+- Color customisation (more advenced styling options to come)
+- i18n management
 
-🔷 Write in TypeScript
+🔷 Writen in TypeScript
 
 ## Install
 
-First download package :
+Install the package using NPM or your favorite package manager :
 
-`npm i @novaway/tarte-a-la-praline`
+```
+npm i @novaway/tarte-a-la-praline
+```
 
-Then import module :
+Then import the module in your application :
 
 ```
 import '@novaway/tarte-a-la-praline/translations/en';
@@ -42,7 +48,11 @@ initTarteALaPraline({
 })
 ```
 
-Default included services is [Google Analytics](https://analytics.google.com/analytics/web/) and [Hotjar](https://www.hotjar.com/). You can add custom service like this, example with **Matomo** :
+The current version includes a default configuration for the following services :
+- [Google Analytics](https://analytics.google.com/analytics/web/)
+- [Hotjar](https://www.hotjar.com/).
+
+You can add custom service. Here is an example for **Matomo** :
 
 ```
 import '@novaway/tarte-a-la-praline/translations/en';
@@ -71,9 +81,10 @@ const initMatomoTagManager = () => {
 
 **i18n**
 
-This module comming with EN and FR translations and need to be imported defore init function. You can add custom translations by adding language parameters :
+This module comes with EN and FR translations that should be imported before the init function.
 
 ```
+import '@novaway/tarte-a-la-praline/translations/en'; // en or fr
 import initTarteALaPraline from '@novaway/tarte-a-la-praline';
 
 initTarteALaPraline({
@@ -89,23 +100,42 @@ initTarteALaPraline({
 });
 ```
 
+## Browser compatibility
+
+To be tested
+
 ## Commands
 
-Running dev environment :
+To be tested
 
-`npm start`
+## Development
 
-Build production environment :
+If you want to modify this library, you can run it with the following command.
 
-`npm run build-prod`
+```
+npm start
+```
 
-## Browser compatibility
+You can also build it in a production compatible way.
+
+```
+npm run build-prod
+```
+
+### Testing
 
 TODO
 
 ## TODO
 
-- [x] translations module
-- [ ] Adding possibility to custom default CSS
+- [x] Translations module
+- [ ] Adding possibility to customize default CSS
 - [ ] Zero dependencies
+- [ ] Verify browser compatibility
 - [ ] Tests
+
+## Contributing
+
+If you want to contribute to this project, please refer to our [Contributing Guidelines](CONTRIBUTING.md)
+
+Made in 🦁 with 🌰 and sugar
