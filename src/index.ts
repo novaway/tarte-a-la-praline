@@ -7,21 +7,21 @@ import Modal from "./templates/Modal";
 import { actionListener } from "./utils/actionListener";
 import showElement from "./utils/setDisplay";
 import { Service, StorageServices, Language } from "./types";
+import { getStorageServices } from "./utils/storage";
 import "./scss/modal.scss";
 import "./scss/cookie-banner.scss";
-import { getStorageServices } from "./utils/storage";
 
 const __DEV__ = process.env.NODE_ENV !== "production";
 
 const defaultServices = (codeGa: string, codeHj: string): Service[] => [
   {
-    name: "Ga",
-    callback: () => initGa(codeGa),
+    name: "Google Analytics",
+    callback: () => initGa(codeGa)
   },
   {
     name: "Hotjar",
-    callback: () => initHotjar(codeHj),
-  },
+    callback: () => initHotjar(codeHj)
+  }
 ];
 // @ts-ignore
 document.body.onload = addCookieDiv();
@@ -37,13 +37,13 @@ function addCookieDiv() {
   document.body.appendChild($modalCookie);
 }
 
-const showCookieBanner = (): void => {
+const showCookieBanner = (primaryColor: string): void => {
   const $cookieBanner = document.getElementById("js-cookie-banner");
   const $modalCookie = document.getElementById("js-cookie-modal");
 
   if ($cookieBanner) {
-    $modalCookie.innerHTML = Modal();
-    $cookieBanner.innerHTML = Banner();
+    $cookieBanner.innerHTML = Banner(primaryColor);
+    $modalCookie.innerHTML = Modal(primaryColor);
   }
 };
 
@@ -52,33 +52,28 @@ interface NovaCookie {
   codeHj?: string;
   customServices?: Service[];
   language?: Language;
+  primaryColor?: string;
 }
-
-const initialValues = {
-  codeGa: null,
-  codeHj: null,
-  customServices: null,
-  language: null,
-};
 
 function initTarteALaPraline({
   codeGa,
   codeHj,
   customServices,
   language,
-}: NovaCookie = initialValues): void {
+  primaryColor
+}: NovaCookie): void {
   if (language) {
     (window as any).tarteALaPralineLanguage = language;
   }
 
   const services: Service[] = [
     ...defaultServices(codeGa, codeHj),
-    ...(customServices ?? []),
+    ...customServices
   ];
   const storageServices = getStorageServices();
 
   if (storageServices === null) {
-    showCookieBanner();
+    showCookieBanner(primaryColor ?? "#000");
     actionListener(services);
     MicroModal.init();
   }
@@ -91,10 +86,10 @@ if (__DEV__) {
     codeHj: "1",
     customServices: [
       {
-        name: "superTest",
-        callback: () => alert("yeah"),
-      },
-    ],
+        name: "mon service custom",
+        callback: () => alert("yeah")
+      }
+    ]
   });
 }
 
