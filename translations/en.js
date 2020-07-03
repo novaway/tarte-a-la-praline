@@ -5,7 +5,8 @@ const EN = {
   BUTTON_DECLINE: "Refuse",
   BUTTON_CUSTOM: "Personalize",
   BUTTON_VALIDATION: "OK",
-  HEADER_MODAL: "Cookie management",
+  HEADER_MODAL: "Cookie management"
 };
 
-window.tarteALaPralineLanguage = EN;
+window.TALP_SETTINGS = {};
+window.TALP_SETTINGS.language = EN;

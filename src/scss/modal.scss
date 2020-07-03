@@ -44,6 +44,11 @@ Modal
     box-sizing: border-box;
   }
 
+  &-field {
+    display: flex;
+    align-items: center;
+  }
+
   &-close {
     cursor: pointer;
     background: transparent;

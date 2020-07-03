@@ -5,7 +5,8 @@ const FR = {
   BUTTON_DECLINE: "Refuser",
   BUTTON_CUSTOM: "Personnaliser",
   BUTTON_VALIDATION: "Valider",
-  HEADER_MODAL: "Gestion des cookies",
+  HEADER_MODAL: "Gestion des cookies"
 };
 
-window.tarteALaPralineLanguage = FR;
+window.TALP_SETTINGS = {};
+window.TALP_SETTINGS.language = FR;

@@ -15,22 +15,47 @@ import { setServices } from "./utils/services";
 
 const __DEV__ = process.env.NODE_ENV !== "production";
 
+interface ClassName {
+  banner: string;
+  text: string;
+  button: string;
+  modalContainer: string;
+  modalTitle: string;
+  modalField: string;
+}
+
 interface NovaCookie {
   codeGa?: string;
   codeHj?: string;
   customServices?: Service[];
   language?: Language;
   primaryColor?: string;
+  className?: ClassName;
 }
+
+const defaultClassName = {
+  banner: "cookie-banner",
+  text: "cookie-banner-text",
+  button: "cookie-banner-button",
+  modalContainer: "modal-container",
+  modalTitle: "modal-title",
+  modalField: "modal-field"
+};
 
 function initTarteALaPraline({
   language,
   primaryColor,
+  className,
   ...params
 }: NovaCookie): void {
   if (language) {
-    (window as any).tarteALaPralineLanguage = language;
+    (window as any).TALP_SETTINGS.language = language;
   }
+
+  (window as any).TALP_SETTINGS.className = {
+    ...defaultClassName,
+    ...(className ?? {})
+  };
 
   // @ts-ignore
   const services: Service[] = setServices(...params);
