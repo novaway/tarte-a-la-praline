@@ -6,7 +6,7 @@ import Banner from "./templates/Banner";
 import Modal from "./templates/Modal";
 import { actionListener } from "./utils/actionListener";
 import showElement from "./utils/setDisplay";
-import { Service, StorageServices, Language } from "./types";
+import { Service, StorageServices, Language, ClassName } from "./types";
 import { getStorageServices } from "./utils/storage";
 import "./scss/modal.scss";
 import "./scss/cookie-banner.scss";
@@ -15,16 +15,7 @@ import { setServices } from "./utils/services";
 
 const __DEV__ = process.env.NODE_ENV !== "production";
 
-interface ClassName {
-  banner: string;
-  text: string;
-  button: string;
-  modalContainer: string;
-  modalTitle: string;
-  modalField: string;
-}
-
-interface NovaCookie {
+interface Props {
   codeGa?: string;
   codeHj?: string;
   customServices?: Service[];
@@ -33,7 +24,7 @@ interface NovaCookie {
   className?: ClassName;
 }
 
-const defaultClassName = {
+const defaultClassName: ClassName = {
   banner: "cookie-banner",
   text: "cookie-banner-text",
   button: "cookie-banner-button",
@@ -42,12 +33,12 @@ const defaultClassName = {
   modalField: "modal-field"
 };
 
-function initTarteALaPraline({
+function initTALP({
   language,
   primaryColor,
   className,
   ...params
-}: NovaCookie): void {
+}: Props): void {
   if (language) {
     (window as any).TALP_SETTINGS.language = language;
   }
@@ -73,7 +64,7 @@ function initTarteALaPraline({
 
 if (__DEV__) {
   require("../translations/fr");
-  initTarteALaPraline({
+  initTALP({
     customServices: [
       {
         name: "mon service custom",
@@ -84,7 +75,7 @@ if (__DEV__) {
 }
 
 if ((window as any).Cypress) {
-  (window as any).initTarteALaPraline = initTarteALaPraline;
+  (window as any).initTALP = initTALP;
 }
 
-export default initTarteALaPraline;
+export default initTALP;

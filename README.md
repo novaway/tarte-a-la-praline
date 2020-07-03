@@ -31,7 +31,7 @@ Then import the module in your application :
 
 ```
 import '@novaway/tarte-a-la-praline/translations/en';
-import initTarteALaPraline from '@novaway/tarte-a-la-praline';
+import initTALP from '@novaway/tarte-a-la-praline';
 ```
 
 ## Basic Usage
@@ -40,9 +40,9 @@ import initTarteALaPraline from '@novaway/tarte-a-la-praline';
 
 ```
 import '@novaway/tarte-a-la-praline/translations/en';
-import initTarteALaPraline from '@novaway/tarte-a-la-praline';
+import initTALP from '@novaway/tarte-a-la-praline';
 
-initTarteALaPraline({
+initTALP({
   codeGa: string,
   codeHj: string
 })
@@ -56,9 +56,9 @@ You can add custom service. Here is an example for **Matomo** :
 
 ```
 import '@novaway/tarte-a-la-praline/translations/en';
-import initTarteALaPraline from '@novaway/tarte-a-la-praline';
+import initTALP from '@novaway/tarte-a-la-praline';
 
-initTarteALaPraline({
+initTALP({
   customServices: [
     {
       name: "matomo",
@@ -85,9 +85,9 @@ This module comes with EN and FR translations that should be imported before the
 
 ```
 import '@novaway/tarte-a-la-praline/translations/en'; // en or fr
-import initTarteALaPraline from '@novaway/tarte-a-la-praline';
+import initTALP from '@novaway/tarte-a-la-praline';
 
-initTarteALaPraline({
+initTALP({
   codeGa: "XXXX",
   language: {
     TEXT_BANNER: string;
