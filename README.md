@@ -12,10 +12,11 @@ _Tarte à la praline_ is quite opinionated to ensure its lightness. If you are l
 
 ## Features
 
-- Native configuration for Google Analytics and Hotjar
-- Ability to add custom configuration for other trackers
-- Color customisation (more advenced styling options to come)
-- i18n management
+-   Native configuration for Google Analytics and Hotjar
+-   Ability to add custom configuration for other trackers
+-   Color customisation (more advenced styling options to come)
+-   HTML classes customisation
+-   i18n management
 
 🔷 Writen in TypeScript
 
@@ -48,57 +49,7 @@ initTALP({
 })
 ```
 
-The current version includes a default configuration for the following services :
-- [Google Analytics](https://analytics.google.com/analytics/web/)
-- [Hotjar](https://www.hotjar.com/).
-
-You can add custom service. Here is an example for **Matomo** :
-
-```
-import '@novaway/tarte-a-la-praline/translations/en';
-import initTALP from '@novaway/tarte-a-la-praline';
-
-initTALP({
-  customServices: [
-    {
-      name: "matomo",
-      callBack: initMatomoTagManager
-    }
-  ]
-});
-
-const initMatomoTagManager = () => {
-  var _mtm = _mtm || [];
-  _mtm.push({'mtm.startTime': (new Date().getTime()), 'event': 'mtm.Start'});
-  var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-  g.type='text/javascript';
-  g.async=true;
-  g.defer=true;
-  g.src='http://your-instance.com/matomo/js/container_YourID.js';
-  s.parentNode.insertBefore(g,s);
-};
-```
-
-**i18n**
-
-This module comes with EN and FR translations that should be imported before the init function.
-
-```
-import '@novaway/tarte-a-la-praline/translations/en'; // en or fr
-import initTALP from '@novaway/tarte-a-la-praline';
-
-initTALP({
-  codeGa: "XXXX",
-  language: {
-    TEXT_BANNER: string;
-    BUTTON_AGREE: string;
-    BUTTON_DECLINE: string;
-    BUTTON_CUSTOM: string;
-    BUTTON_VALIDATION: string;
-    HEADER_MODAL: string;
-  }
-});
-```
+[More examples with all feature](./example/EXAMPLE.md).
 
 ## Browser compatibility
 
@@ -124,12 +75,12 @@ TODO
 
 ## TODO
 
-- [x] Translations module
-- [ ] a11y
-- [ ] Adding possibility to customize default CSS
-- [ ] Zero dependencies
-- [ ] Verify browser compatibility
-- [ ] Tests
+-   [x] Translations module
+-   [ ] a11y
+-   [ ] Adding possibility to customize default CSS
+-   [ ] Zero dependencies
+-   [ ] Verify browser compatibility
+-   [ ] Tests
 
 ## Contributing
 
