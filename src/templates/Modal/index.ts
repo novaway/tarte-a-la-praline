@@ -8,7 +8,8 @@ const Modal = (primaryColor: string): string => {
           <h2 class="${className.modalTitle}">${language.HEADER_MODAL}</h2>
           <button
             class="modal-close"
-            aria-label="Close modal"
+            aria-label="Fermer"
+            title="Fermer"
             data-micromodal-close
           ></button>
         </header>

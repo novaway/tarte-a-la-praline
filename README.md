@@ -125,6 +125,7 @@ TODO
 ## TODO
 
 - [x] Translations module
+- [ ] a11y
 - [ ] Adding possibility to customize default CSS
 - [ ] Zero dependencies
 - [ ] Verify browser compatibility
