@@ -18,9 +18,6 @@ export const showBanner = (primaryColor: string): void => {
   const $cookieBanner = document.getElementById("js-cookie-banner");
   const $modalCookie = document.getElementById("js-cookie-modal");
 
-  console.log($cookieBanner);
-  console.log($modalCookie);
-
   if ($cookieBanner) {
     $cookieBanner.innerHTML = Banner(primaryColor);
     $modalCookie.innerHTML = Modal(primaryColor);
