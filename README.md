@@ -49,7 +49,7 @@ initTALP({
 })
 ```
 
-[More examples with all feature](./example/EXAMPLE.md).
+[More examples with all features](./example/EXAMPLE.md).
 
 ## Browser compatibility
 
