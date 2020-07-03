@@ -90,7 +90,7 @@ PR for new language are welcome :)
 
 ## HTML Classes
 
-The default main classes can be override :
+The default main classes can be overriden :
 
 ```
 import '@novaway/tarte-a-la-praline/translations/en'; // en or fr
