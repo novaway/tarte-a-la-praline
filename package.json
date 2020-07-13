@@ -1,6 +1,6 @@
 {
   "name": "@novaway/tarte-a-la-praline",
-  "version": "0.0.7",
+  "version": "0.1.0",
   "description": "",
   "main": "./dist/main.js",
   "module": "src/index.ts",
