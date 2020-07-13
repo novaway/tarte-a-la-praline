@@ -12,7 +12,7 @@ insert_final_newline = true
 [*.tsx]
 indent_size = 2
 
-[*.twig]
+[*.js]
 indent_size = 2
 
 [*.ts]

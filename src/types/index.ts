@@ -15,3 +15,12 @@ export interface Language {
   BUTTON_VALIDATION: string;
   HEADER_MODAL: string;
 }
+
+export interface ClassName {
+  banner: string;
+  text: string;
+  button: string;
+  modalContainer: string;
+  modalTitle: string;
+  modalField: string;
+}
