@@ -4,6 +4,7 @@
   "description": "",
   "main": "./dist/main.js",
   "module": "src/index.ts",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist",
     "translations"
