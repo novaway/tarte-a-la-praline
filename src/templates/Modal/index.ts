@@ -2,7 +2,7 @@ const Modal = (primaryColor: string): string => {
   const { language, className } = (window as any).TALP_SETTINGS;
 
   return `
-    <div class="modal-overlay" data-modal style="color: ${primaryColor}">
+    <div class="${className.modalOverlay}" style="color: ${primaryColor}">
       <div class="${className.modalContainer}" role="dialog" aria-modal="true">
         <header class="modal-header">
           <h2 class="${className.modalTitle}">${language.HEADER_MODAL}</h2>

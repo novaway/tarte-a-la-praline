@@ -20,6 +20,7 @@ export interface ClassName {
   banner: string;
   text: string;
   button: string;
+  modalOverlay: string;
   modalContainer: string;
   modalTitle: string;
   modalField: string;

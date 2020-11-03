@@ -25,6 +25,7 @@ const defaultClassName: ClassName = {
   banner: "cookie-banner",
   text: "cookie-banner-text",
   button: "cookie-banner-button",
+  modalOverlay: "modal-overlay",
   modalContainer: "modal-container",
   modalTitle: "modal-title",
   modalField: "modal-field"
