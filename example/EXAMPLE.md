@@ -11,6 +11,8 @@ Table of contents
 ## Basic Usage
 
 ```
+import '@novaway/tarte-a-la-praline/dist/cookieBanner.css'; // default banner styles
+import '@novaway/tarte-a-la-praline/dist/modal.css'; // default modal styles
 import '@novaway/tarte-a-la-praline/translations/en';
 import initTALP from '@novaway/tarte-a-la-praline';
 
@@ -81,6 +83,7 @@ initTALP({
     BUTTON_CUSTOM: string;
     BUTTON_VALIDATION: string;
     HEADER_MODAL: string;
+    HEADER_MODAL_BUTTON_CLOSE: string;
   },
   ...
 });
@@ -119,6 +122,23 @@ import initTALP from '@novaway/tarte-a-la-praline';
 
 initTALP({
   primaryColor: '#808080',
+  ...
+});
+```
+
+## Styles
+
+The default CSS is not included in order to leave the choice to the user to import or not his own style.
+
+Import default CSS :
+
+```
+import '@novaway/tarte-a-la-praline/dist/cookieBanner.css'; // default banner styles
+import '@novaway/tarte-a-la-praline/dist/modal.css'; // default modal styles
+import '@novaway/tarte-a-la-praline/translations/fr';
+import initTALP from '@novaway/tarte-a-la-praline';
+
+initTALP({
   ...
 });
 ```
