@@ -5,7 +5,8 @@ const FR = {
   BUTTON_DECLINE: "Refuser",
   BUTTON_CUSTOM: "Personnaliser",
   BUTTON_VALIDATION: "Valider",
-  HEADER_MODAL: "Gestion des cookies"
+  HEADER_MODAL: "Gestion des cookies",
+  HEADER_MODAL_BUTTON_CLOSE: "Fermer"
 };
 
 window.TALP_SETTINGS = {};

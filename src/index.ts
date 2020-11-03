@@ -1,5 +1,4 @@
 // @ts-ignore
-import MicroModal from "micromodal";
 import initGa from "./services/ga";
 import initHotjar from "./services/hotjar";
 import Banner from "./templates/Banner";
@@ -57,7 +56,6 @@ function initTALP({
       insertBanner();
       showBanner(primaryColor ?? "#000");
       actionListener(services);
-      MicroModal.init();
     });
   }
 }

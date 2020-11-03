@@ -5,6 +5,7 @@ import openSelection from "./openSelection";
 import allowCustomCookies from "./allowCustomCookies";
 import { Service, StorageServices } from "../types";
 import { getStorageServices, setStorageServices } from "./storage";
+import { closeModal } from "./banner";
 
 const actionListener = (services: Service[]): void => {
   const actions = [
@@ -53,6 +54,7 @@ const customActionListener = (services: Service[]): void => {
 
       setStorageServices(storageServices);
       allowCustomCookies(execServices);
+      closeModal()
     });
   }
 };

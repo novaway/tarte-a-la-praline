@@ -1,6 +1,6 @@
 /* ===========================================================================
-Modal
-=========================================================================== */
+   Modal
+   =========================================================================== */
 
 .modal {
   &-overlay {
@@ -14,6 +14,14 @@ Modal
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.2s;
+
+    .is-open & {
+      opacity: 1;
+      visibility: visible;
+    }
   }
 
   &-container {
@@ -24,6 +32,12 @@ Modal
     border-radius: 4px;
     overflow-y: auto;
     box-sizing: border-box;
+    transition: 0.2s;
+    transform: scale(0.9);
+
+    .is-open & {
+      transform: scale(1);
+    }
 
     @media screen and (min-width: 1024px) {
       width: 50%;
@@ -70,73 +84,4 @@ Modal
       margin-top: 2rem;
     }
   }
-}
-
-@keyframes mmfadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes mmfadeOut {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes mmslideIn {
-  from {
-    transform: translateY(15%);
-  }
-
-  to {
-    transform: translateY(0);
-  }
-}
-
-@keyframes mmslideOut {
-  from {
-    transform: translateY(0);
-  }
-
-  to {
-    transform: translateY(-10%);
-  }
-}
-
-.micromodal-slide {
-  display: none;
-}
-
-.micromodal-slide.is-open {
-  display: block;
-}
-
-.micromodal-slide[aria-hidden="false"] .modal__overlay {
-  animation: mmfadeIn 0.3s cubic-bezier(0, 0, 0.2, 1);
-}
-
-.micromodal-slide[aria-hidden="false"] .modal__container {
-  animation: mmslideIn 0.3s cubic-bezier(0, 0, 0.2, 1);
-}
-
-.micromodal-slide[aria-hidden="true"] .modal__overlay {
-  animation: mmfadeOut 0.3s cubic-bezier(0, 0, 0.2, 1);
-}
-
-.micromodal-slide[aria-hidden="true"] .modal__container {
-  animation: mmslideOut 0.3s cubic-bezier(0, 0, 0.2, 1);
-}
-
-.micromodal-slide .modal__container,
-.micromodal-slide .modal__overlay {
-  will-change: transform;
 }
