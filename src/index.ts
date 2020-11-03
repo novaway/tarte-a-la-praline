@@ -7,8 +7,6 @@ import { actionListener } from "./utils/actionListener";
 import showElement from "./utils/setDisplay";
 import { Service, StorageServices, Language, ClassName } from "./types";
 import { getStorageServices } from "./utils/storage";
-import "./scss/modal.scss";
-import "./scss/cookie-banner.scss";
 import { insertBanner, showBanner } from "./utils/banner";
 import { setServices } from "./utils/services";
 
