@@ -3,7 +3,7 @@ const Banner = (primaryColor: string): string => {
 
   return `
     <style>
-      .cookie-banner-button {
+      .talp-cookie-banner-button {
         color: ${primaryColor}
       }
     </style>
@@ -11,7 +11,7 @@ const Banner = (primaryColor: string): string => {
       <p class="${className.text}">
         ${language.TEXT_BANNER}
       </p>
-      <div class="cookie-banner-buttons-wrapper">
+      <div class="talp-cookie-banner-buttons-wrapper">
         <button class="${className.button} js-cookie-button-allow"><span>${language.BUTTON_AGREE}</span></button>
         <button class="${className.button} js-cookie-button-deny"><span>${language.BUTTON_DECLINE}</span></button>
         <button class="${className.button} js-cookie-button-customize"><span>${language.BUTTON_CUSTOM}</span></button>

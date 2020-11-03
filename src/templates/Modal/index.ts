@@ -4,10 +4,10 @@ const Modal = (primaryColor: string): string => {
   return `
     <div class="${className.modalOverlay}" style="color: ${primaryColor}">
       <div class="${className.modalContainer}" role="dialog" aria-modal="true">
-        <header class="modal-header">
+        <header class="${className.modalHeader}">
           <h2 class="${className.modalTitle}">${language.HEADER_MODAL}</h2>
           <button
-            class="js-modal-button-close modal-close"
+            class="js-modal-button-close ${className.modalButtonClose}"
             aria-label="${language.HEADER_MODAL_BUTTON_CLOSE}"
             title="${language.HEADER_MODAL_BUTTON_CLOSE}"
           ></button>

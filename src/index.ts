@@ -22,13 +22,15 @@ interface Props {
 }
 
 const defaultClassName: ClassName = {
-  banner: "cookie-banner",
-  text: "cookie-banner-text",
-  button: "cookie-banner-button",
-  modalOverlay: "modal-overlay",
-  modalContainer: "modal-container",
-  modalTitle: "modal-title",
-  modalField: "modal-field"
+  banner: "talp-cookie-banner",
+  text: "talp-cookie-banner-text",
+  button: "talp-cookie-banner-button",
+  modalOverlay: "talp-modal-overlay",
+  modalHeader: "talp-modal-header",
+  modalContainer: "talp-modal-container",
+  modalTitle: "talp-modal-title",
+  modalButtonClose: "talp-modal-close",
+  modalField: "talp-modal-field"
 };
 
 function initTALP({

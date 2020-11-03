@@ -21,7 +21,9 @@ export interface ClassName {
   text: string;
   button: string;
   modalOverlay: string;
+  modalHeader: string;
   modalContainer: string;
   modalTitle: string;
+  modalButtonClose: string;
   modalField: string;
 }
