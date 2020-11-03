@@ -14,11 +14,11 @@ _Tarte à la praline_ is quite opinionated to ensure its lightness. If you are l
 
 -   Native configuration for Google Analytics and Hotjar
 -   Ability to add custom configuration for other trackers
--   Color customisation (more advenced styling options to come)
+-   Color customisation (more advanced styling options to come)
 -   HTML classes customisation
 -   i18n management
 
-🔷 Writen in TypeScript
+🔷 Written in TypeScript
 
 ## Install
 
