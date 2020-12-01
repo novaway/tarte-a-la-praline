@@ -9,6 +9,7 @@ import { Service, StorageServices, Language, ClassName } from "./types";
 import { getStorageServices } from "./utils/storage";
 import { insertBanner, showBanner } from "./utils/banner";
 import { setServices } from "./utils/services";
+import allowCustomCookies from "./utils/allowCustomCookies";
 
 const __DEV__ = process.env.NODE_ENV !== "production";
 
@@ -53,12 +54,14 @@ function initTALP({
   const storageServices = getStorageServices();
 
   if (storageServices === null) {
-    window.addEventListener("load", () => {
+    return window.addEventListener("load", () => {
       insertBanner();
       showBanner(primaryColor ?? "#000");
       actionListener(services);
     });
   }
+
+  return allowCustomCookies(params.customServices ?? []);
 }
 
 if (__DEV__) {
