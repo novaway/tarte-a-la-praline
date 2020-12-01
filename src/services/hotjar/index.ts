@@ -1,6 +1,7 @@
-const initHotjar = (code: string): void => {
-  // @ts-ignore
-  (function(h: any, o: any, t: any, j: any, a: any, r: any): void {
+// @ts-nocheck
+
+const initHotjar = code => {
+  (function(h, o, t, j, a, r) {
     h.hj =
       h.hj ||
       function() {

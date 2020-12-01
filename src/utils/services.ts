@@ -1,4 +1,5 @@
 import initGa from "../services/ga";
+import initGtm from "../services/gtm";
 import initHotjar from "../services/hotjar";
 import { Service } from "../types";
 
@@ -7,18 +8,31 @@ const setService = (name: string, callback: () => void): Service => ({
   callback
 });
 
-export const setServices = ({ codeGa, codeHj, customServices }): Service[] => {
+export interface SetServicesProps {
+  codeGa?: string;
+  codeGtm?: string;
+  codeHj?: string;
+  customServices?: Service[];
+}
+
+export const setServices = ({
+  codeGa,
+  codeGtm,
+  codeHj,
+  customServices
+}: SetServicesProps): Service[] => {
   let services = [];
 
   if (codeGa !== undefined) {
-    services = [
-      ...services,
-      setService("Google Analytics", () => initGa(codeGa))
-    ];
+    services = [...services, setService("ga", () => initGa(codeGa))];
+  }
+
+  if (codeGtm !== undefined) {
+    services = [...services, setService("gtm", () => initGtm(codeGtm))];
   }
 
   if (codeHj !== undefined) {
-    services = [...services, setService("Hotjar", () => initHotjar(codeHj))];
+    services = [...services, setService("hotjar", () => initHotjar(codeHj))];
   }
 
   if (customServices !== undefined && customServices.length > 0) {

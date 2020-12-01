@@ -8,15 +8,12 @@ import showElement from "./utils/setDisplay";
 import { Service, StorageServices, Language, ClassName } from "./types";
 import { getStorageServices } from "./utils/storage";
 import { insertBanner, showBanner } from "./utils/banner";
-import { setServices } from "./utils/services";
+import { setServices, SetServicesProps } from "./utils/services";
 import allowCustomCookies from "./utils/allowCustomCookies";
 
 const __DEV__ = process.env.NODE_ENV !== "production";
 
-interface Props {
-  codeGa?: string;
-  codeHj?: string;
-  customServices?: Service[];
+interface Props extends SetServicesProps {
   language?: Language;
   primaryColor?: string;
   className?: ClassName;
@@ -49,8 +46,7 @@ function initTALP({
     ...(className ?? {})
   };
 
-  // @ts-ignore
-  const services: Service[] = setServices(...params);
+  const services: Service[] = setServices(params);
   const storageServices = getStorageServices();
 
   if (storageServices === null) {
@@ -61,12 +57,16 @@ function initTALP({
     });
   }
 
-  return allowCustomCookies(params.customServices ?? []);
+  console.log(services);
+
+  return allowCustomCookies(services);
 }
 
 if (__DEV__) {
   require("../translations/fr");
   initTALP({
+    codeGtm: "test",
+    codeGa: "test",
     customServices: [
       {
         name: "mon service custom",
