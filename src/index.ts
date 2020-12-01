@@ -57,19 +57,17 @@ function initTALP({
     });
   }
 
-  console.log(services);
-
   return allowCustomCookies(services);
 }
 
 if (__DEV__) {
   require("../translations/fr");
   initTALP({
-    codeGtm: "test",
-    codeGa: "test",
+    codeGa: "codeGa",
+    codeGtm: "codeGTM",
     customServices: [
       {
-        name: "mon service custom",
+        name: "My custom service",
         callback: () => alert("yeah")
       }
     ]
