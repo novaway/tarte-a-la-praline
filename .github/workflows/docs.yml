@@ -10,7 +10,8 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v1
-            - uses: tool3/docsify-action@master
+            - name: Deploy 🚀
+              uses: JamesIves/github-pages-deploy-action@3.7.1
               with:
-                  branch: develop
-                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  BRANCH: gh-pages
