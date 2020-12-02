@@ -10,7 +10,6 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v1
-              run: cp ./README.md ./docs
             - uses: tool3/docsify-action@master
               with:
                   branch: develop
