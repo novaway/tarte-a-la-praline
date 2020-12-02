@@ -6,8 +6,10 @@ on:
             - develop
 
 jobs:
-    publish:
-        - uses: tool3/docsify-action@v1
-          with:
-              branch: develop
-              github_token: ${{ secrets.GITHUB_TOKEN }}
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: tool3/docsify-action@v1
+              with:
+                  branch: develop
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
