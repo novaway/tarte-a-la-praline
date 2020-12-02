@@ -1,13 +1,5 @@
 # Examples
 
-Table of contents
-
--   [Basic Usage](basic-usage)
--   [Custom service](custom-service)
--   [i18n](i18n)
--   [HTML Classes](html-classes)
--   [Primary color](primary-color)
-
 ## Basic Usage
 
 ```
@@ -18,6 +10,7 @@ import initTALP from '@novaway/tarte-a-la-praline';
 
 initTALP({
   codeGa: string,
+  codeGtm: string,
   codeHj: string
 })
 ```
@@ -25,7 +18,8 @@ initTALP({
 The current version includes a default configuration for the following services :
 
 -   [Google Analytics](https://analytics.google.com/analytics/web/)
--   [Hotjar](https://www.hotjar.com/).
+-   [Google Tag Manager](https://marketingplatform.google.com/intl/fr/about/tag-manager/)
+-   [Hotjar](https://www.hotjar.com/)
 
 ## Custom service
 

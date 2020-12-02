@@ -1,0 +1,13 @@
+name: Documentation
+
+on:
+    push:
+        branches:
+            - develop
+
+jobs:
+    publish:
+        - uses: tool3/docsify-action@v1
+          with:
+              branch: develop
+              github_token: ${{ secrets.GITHUB_TOKEN }}

@@ -1,4 +1,4 @@
-name: Tarte à la praline CI
+name: Build and Publish
 
 on:
     create:
