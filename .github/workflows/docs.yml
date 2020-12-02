@@ -10,6 +10,11 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v1
+            - name: Copy README file
+              uses: canastro/copy-file-action@master
+              with:
+                  source: "README.md"
+                  target: "docs/README.md"
             - name: Deploy 🚀
               uses: JamesIves/github-pages-deploy-action@3.7.1
               with:
