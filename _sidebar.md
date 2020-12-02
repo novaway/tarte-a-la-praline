@@ -1,4 +1,4 @@
 <!-- docs/_sidebar.md -->
 
--   [Home](/)
--   [Exemples](./examples/README.md)
+-   [**Getting started**](/)
+-   [**Exemples**](./examples/README.md)
