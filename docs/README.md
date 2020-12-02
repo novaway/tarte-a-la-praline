@@ -6,7 +6,7 @@
 
 _**Tarte à la praline**_ is a lightweight library that allow users to manage tracking cookies in a way that is compliant with the european [Directive 2009/136/EC](https://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ:L:2009:337:0011:0036:en:PDF) also refered to as _"The cookie Law"_.
 
-![screenshot of the cookie banner with an alert box](doc/screenshot.png)
+![screenshot of the cookie banner with an alert box](documentation/screenshot.png)
 
 _Tarte à la praline_ is quite opinionated to ensure its lightness. If you are looking for a more complete implementation, we recommand you use [tarteaucitron.js](https://github.com/AmauriC/tarteaucitron.js).
 
@@ -53,7 +53,7 @@ initTALP({
 
 ## Browser compatibility
 
-To be tested
+TALP work with evergreen browser.
 
 ## Development
 
@@ -76,10 +76,10 @@ TODO
 ## TODO
 
 -   [x] Translations module
--   [ ] a11y
+-   [x] a11y
 -   [x] Adding possibility to customize default CSS
 -   [ ] Zero dependencies
--   [ ] Verify browser compatibility
+-   [x] Verify browser compatibility
 -   [ ] Tests
 
 ## Contributing

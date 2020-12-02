@@ -4,7 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "serve": "docsify serve ."
+        "serve": "cp ../README.md . && docsify serve ."
     },
     "keywords": [],
     "author": "",
