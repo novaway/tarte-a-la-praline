@@ -1,6 +1,20 @@
 export interface Service {
   name: string;
+  label?: string;
   callback: () => void;
+  description?: string;
+}
+
+export interface DefaultServices {
+  ga?: DefaultService;
+  hotjar?: DefaultService;
+  gtm?: DefaultService;
+}
+
+export interface DefaultService {
+  code: string;
+  name: string;
+  description?: string;
 }
 
 export interface StorageServices {
@@ -14,6 +28,7 @@ export interface Language {
   BUTTON_CUSTOM: string;
   BUTTON_VALIDATION: string;
   HEADER_MODAL: string;
+  SUBTITLE_MODALE: string;
 }
 
 export interface ClassName {

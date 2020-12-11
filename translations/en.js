@@ -6,7 +6,8 @@ const EN = {
   BUTTON_CUSTOM: "Personalize",
   BUTTON_VALIDATION: "OK",
   HEADER_MODAL: "Cookie management",
-  HEADER_MODAL_BUTTON_CLOSE: "Close"
+  HEADER_MODAL_BUTTON_CLOSE: "Close",
+  SUBTITLE_MODALE: ""
 };
 
 window.TALP_SETTINGS = {};

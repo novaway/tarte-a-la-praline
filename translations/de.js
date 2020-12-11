@@ -6,7 +6,8 @@
   BUTTON_CUSTOM: "Hier personalisieren",
   BUTTON_VALIDATION: "Bestätigen",
   HEADER_MODAL: "Cookie Einstellungen",
-  HEADER_MODAL_BUTTON_CLOSE: "Schließen"
+  HEADER_MODAL_BUTTON_CLOSE: "Schließen",
+  SUBTITLE_MODALE: ""
 };
 
 window.TALP_SETTINGS = {};

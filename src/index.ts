@@ -63,12 +63,23 @@ function initTALP({
 if (__DEV__) {
   require("../translations/fr");
   initTALP({
-    codeGa: "codeGa",
-    codeGtm: "codeGTM",
+    defaultServices: {
+      ga: {
+        code: "123",
+        name: "google analitycs",
+        description: "<div>patate</div>"
+      },
+      hotjar: {
+        code: "123",
+        name: "ceciEstHotjar"
+      }
+    },
     customServices: [
       {
-        name: "My custom service",
-        callback: () => alert("yeah")
+        name: "myCustomService",
+        label: "My custom Service",
+        callback: () => alert("yeah"),
+        description: "lorem uihhufhsu uihfues "
       }
     ]
   });
