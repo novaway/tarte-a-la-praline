@@ -65,13 +65,17 @@ if (__DEV__) {
   initTALP({
     defaultServices: {
       ga: {
-        code: "123",
+        code: "gaCode",
         name: "google analitycs",
-        description: "<div>patate</div>"
+        description: "<div>text de description</div>"
       },
       hotjar: {
-        code: "123",
+        code: "hotjarCode",
         name: "ceciEstHotjar"
+      },
+      gtm: {
+        code: "gtmCode",
+        name: "gtm cookie"
       }
     },
     customServices: [
