@@ -10,5 +10,14 @@ export const getStorageServices = (): StorageServices | null => {
   return null;
 };
 
-export const setStorageServices = (services: Service[]): void =>
-  localStorage.setItem("services", JSON.stringify(services));
+export const setStorageServices = (services: Service[]): void => {
+  let $statusServices = {};
+  console.log(services, "storage.ts");
+  services.forEach(({ name, value }) => {
+    $statusServices = {
+      ...$statusServices,
+      [name]: value
+    };
+  });
+  localStorage.setItem("services", JSON.stringify($statusServices));
+};

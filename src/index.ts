@@ -56,8 +56,13 @@ function initTALP({
       actionListener(services);
     });
   }
-
-  return allowCustomCookies(services);
+  const serviceAvailableInLocalStorage = services
+    .map(service => {
+      service.value = storageServices[service.name];
+      return service;
+    })
+    .filter(service => service.value);
+  return allowCustomCookies(serviceAvailableInLocalStorage);
 }
 
 if (__DEV__) {
