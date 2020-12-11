@@ -67,23 +67,25 @@ if (__DEV__) {
       ga: {
         code: "gaCode",
         name: "google analitycs",
-        description: "<div>text de description</div>"
+        description:
+          "<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>"
       },
       hotjar: {
         code: "hotjarCode",
-        name: "ceciEstHotjar"
+        name: "Hotjar"
       },
       gtm: {
         code: "gtmCode",
-        name: "gtm cookie"
+        name: "Google tag manager"
       }
     },
     customServices: [
       {
-        name: "myCustomService",
+        name: "customeService",
         label: "My custom Service",
-        callback: () => alert("yeah"),
-        description: "lorem uihhufhsu uihfues "
+        callback: () => alert("it's working!"),
+        description:
+          "<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>"
       }
     ]
   });
