@@ -3,6 +3,7 @@ export interface Service {
   label?: string;
   callback: () => void;
   description?: string;
+  value?: boolean;
 }
 
 export interface DefaultServices {
@@ -41,4 +42,5 @@ export interface ClassName {
   modalTitle: string;
   modalButtonClose: string;
   modalField: string;
+  modalFieldDescription: string;
 }

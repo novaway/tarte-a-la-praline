@@ -12,11 +12,15 @@ const CustomSelection = (services: Service[]): string => {
               `
                 <div class="${
                   className.modalField
-                }" style="margin-bottom: 5px;">
+                }" style="margin-bottom: 10px;">
                   <span style="padding-right: 5px; padding-top: 3px;"><input style="margin-left:0" type="checkbox" id=${name} name=${name} value="true"></span>
                   <label for=${name}>${label}</label>
                   </div>
-                  ${description !== undefined ? `${description}` : ""}
+                  ${
+                    description !== undefined
+                      ? `<div class="${className.modalFieldDescription}">${description}</div>`
+                      : ""
+                  }
 
               `
           )

@@ -28,7 +28,8 @@ const defaultClassName: ClassName = {
   modalContainer: "talp-modal-container",
   modalTitle: "talp-modal-title",
   modalButtonClose: "talp-modal-close",
-  modalField: "talp-modal-field"
+  modalField: "talp-modal-field",
+  modalFieldDescription: "talp-modal-field-description"
 };
 
 function initTALP({
