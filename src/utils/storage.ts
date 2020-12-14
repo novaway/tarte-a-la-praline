@@ -12,10 +12,10 @@ export const getStorageServices = (): StorageServices | null => {
 
 export const setStorageServices = (services: Service[]): void => {
   let $statusServices = {};
-  services.forEach(({ name, value }) => {
+  services.forEach(({ id, value }) => {
     $statusServices = {
       ...$statusServices,
-      [name]: value
+      [id]: value
     };
   });
   localStorage.setItem("services", JSON.stringify($statusServices));

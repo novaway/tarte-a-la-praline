@@ -8,13 +8,13 @@ const CustomSelection = (services: Service[]): string => {
       <form id="js-custom-cookie-form" class="custom-cookie-form">
         ${services
           .map(
-            ({ name, description, label }) =>
+            ({ id, description, label }) =>
               `
                 <div class="${
                   className.modalField
                 }" style="margin-bottom: 10px;">
-                  <span style="padding-right: 5px; padding-top: 3px;"><input style="margin-left:0" type="checkbox" id=${name} name=${name} value="true"></span>
-                  <label for=${name}>${label}</label>
+                  <span style="padding-right: 5px; padding-top: 3px;"><input style="margin-left:0" type="checkbox" id=${id} name=${id} value="true"></span>
+                  <label for=${id}>${label}</label>
                   </div>
                   ${
                     description !== undefined

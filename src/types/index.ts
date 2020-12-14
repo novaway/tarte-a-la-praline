@@ -1,6 +1,6 @@
 export interface Service {
-  name: string;
-  label?: string;
+  id?: string;
+  label: string;
   callback: () => void;
   description?: string;
   value?: boolean;
@@ -14,7 +14,7 @@ export interface DefaultServices {
 
 export interface DefaultService {
   code: string;
-  name: string;
+  label: string;
   description?: string;
 }
 

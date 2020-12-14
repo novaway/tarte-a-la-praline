@@ -5,12 +5,12 @@ import { Service, DefaultServices } from "../types";
 import camelCase from "./camelCase";
 
 const setService = (
-  name: string,
+  label: string,
   callback: () => void,
   description?: string
 ): Service => ({
-  name: camelCase(name),
-  label: name,
+  id: camelCase(label),
+  label,
   callback,
   description
 });
@@ -30,7 +30,7 @@ export const setServices = ({
     services = [
       ...services,
       setService(
-        defaultServices.ga.name,
+        defaultServices.ga.label,
         () => initGa(defaultServices.ga.code),
         defaultServices.ga.description
       )
@@ -41,7 +41,7 @@ export const setServices = ({
     services = [
       ...services,
       setService(
-        defaultServices.gtm.name,
+        defaultServices.gtm.label,
         () => initGtm(defaultServices.gtm.code),
         defaultServices.gtm.description
       )
@@ -52,7 +52,7 @@ export const setServices = ({
     services = [
       ...services,
       setService(
-        defaultServices.hotjar.name,
+        defaultServices.hotjar.label,
         () => initHotjar(defaultServices.hotjar.code),
         defaultServices.hotjar.description
       )
@@ -60,7 +60,16 @@ export const setServices = ({
   }
 
   if (customServices !== undefined && customServices.length > 0) {
-    services = [...services, ...customServices];
+    customServices.map(customService => {
+      services = [
+        ...services,
+        setService(
+          customService.label,
+          customService.callback,
+          customService.description
+        )
+      ];
+    });
   }
 
   return services;
