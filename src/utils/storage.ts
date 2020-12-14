@@ -12,7 +12,6 @@ export const getStorageServices = (): StorageServices | null => {
 
 export const setStorageServices = (services: Service[]): void => {
   let $statusServices = {};
-  console.log(services, "storage.ts");
   services.forEach(({ name, value }) => {
     $statusServices = {
       ...$statusServices,
