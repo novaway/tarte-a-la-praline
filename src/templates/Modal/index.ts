@@ -7,11 +7,12 @@ const Modal = (primaryColor: string): string => {
         <header class="${className.modalHeader}">
           <h2 class="${className.modalTitle}">${language.HEADER_MODAL}</h2>
           <button
-            class="js-modal-button-close ${className.modalButtonClose}"
-            aria-label="${language.HEADER_MODAL_BUTTON_CLOSE}"
-            title="${language.HEADER_MODAL_BUTTON_CLOSE}"
+          class="js-modal-button-close ${className.modalButtonClose}"
+          aria-label="${language.HEADER_MODAL_BUTTON_CLOSE}"
+          title="${language.HEADER_MODAL_BUTTON_CLOSE}"
           ></button>
-        </header>
+          </header>
+          ${language.SUBTITLE_MODALE}
         <div class="modal-content">
           <div id="js-custom-selection"></div>
         </div>

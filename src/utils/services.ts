@@ -1,42 +1,75 @@
 import initGa from "../services/ga";
 import initGtm from "../services/gtm";
 import initHotjar from "../services/hotjar";
-import { Service } from "../types";
+import { Service, DefaultServices } from "../types";
+import camelCase from "./camelCase";
 
-const setService = (name: string, callback: () => void): Service => ({
-  name,
-  callback
+const setService = (
+  label: string,
+  callback: () => void,
+  description?: string
+): Service => ({
+  id: camelCase(label),
+  label,
+  callback,
+  description
 });
 
 export interface SetServicesProps {
-  codeGa?: string;
-  codeGtm?: string;
-  codeHj?: string;
+  defaultServices: DefaultServices;
   customServices?: Service[];
 }
 
 export const setServices = ({
-  codeGa,
-  codeGtm,
-  codeHj,
+  defaultServices,
   customServices
 }: SetServicesProps): Service[] => {
   let services = [];
 
-  if (codeGa !== undefined) {
-    services = [...services, setService("ga", () => initGa(codeGa))];
+  if (defaultServices.ga !== undefined) {
+    services = [
+      ...services,
+      setService(
+        defaultServices.ga.label,
+        () => initGa(defaultServices.ga.code),
+        defaultServices.ga.description
+      )
+    ];
   }
 
-  if (codeGtm !== undefined) {
-    services = [...services, setService("gtm", () => initGtm(codeGtm))];
+  if (defaultServices.gtm !== undefined) {
+    services = [
+      ...services,
+      setService(
+        defaultServices.gtm.label,
+        () => initGtm(defaultServices.gtm.code),
+        defaultServices.gtm.description
+      )
+    ];
   }
 
-  if (codeHj !== undefined) {
-    services = [...services, setService("hotjar", () => initHotjar(codeHj))];
+  if (defaultServices.hotjar !== undefined) {
+    services = [
+      ...services,
+      setService(
+        defaultServices.hotjar.label,
+        () => initHotjar(defaultServices.hotjar.code),
+        defaultServices.hotjar.description
+      )
+    ];
   }
 
   if (customServices !== undefined && customServices.length > 0) {
-    services = [...services, ...customServices];
+    customServices.map(customService => {
+      services = [
+        ...services,
+        setService(
+          customService.label,
+          customService.callback,
+          customService.description
+        )
+      ];
+    });
   }
 
   return services;

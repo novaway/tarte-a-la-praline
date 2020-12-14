@@ -6,7 +6,8 @@ const FR = {
   BUTTON_CUSTOM: "Personnaliser",
   BUTTON_VALIDATION: "Valider",
   HEADER_MODAL: "Gestion des cookies",
-  HEADER_MODAL_BUTTON_CLOSE: "Fermer"
+  HEADER_MODAL_BUTTON_CLOSE: "Fermer",
+  SUBTITLE_MODALE: ""
 };
 
 window.TALP_SETTINGS = {};

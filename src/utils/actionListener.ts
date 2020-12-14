@@ -11,16 +11,16 @@ const actionListener = (services: Service[]): void => {
   const actions = [
     {
       className: ".js-cookie-button-allow",
-      action: () => allowAllCookies(services),
+      action: () => allowAllCookies(services)
     },
     {
       className: ".js-cookie-button-deny",
-      action: () => denyAllCookies(services),
+      action: () => denyAllCookies(services)
     },
     {
       className: ".js-cookie-button-customize",
-      action: () => openSelection(services),
-    },
+      action: () => openSelection(services)
+    }
   ];
 
   actions.forEach(({ className, action }): void => {
@@ -40,21 +40,21 @@ const customActionListener = (services: Service[]): void => {
       event.preventDefault();
 
       const checkedServices: string[] = [
-        ...document.querySelectorAll("input[type=checkbox]:checked"),
-      ].map(({ name }: HTMLInputElement) => name);
+        ...document.querySelectorAll("input[type=checkbox]:checked")
+      ].map(({ id }: HTMLInputElement) => id);
 
       const execServices = services.filter((s: Service) =>
-        checkedServices.includes(s.name)
+        checkedServices.includes(s.id)
       );
 
       const storageServices = services.map((s: Service) => ({
         ...s,
-        value: checkedServices.includes(s.name),
+        value: checkedServices.includes(s.id)
       }));
 
       setStorageServices(storageServices);
       allowCustomCookies(execServices);
-      closeModal()
+      closeModal();
     });
   }
 };

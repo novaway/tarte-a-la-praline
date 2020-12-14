@@ -8,10 +8,10 @@ const denyAllCookies = ($services: Service[]) => {
 
 const setAllLocalStoragesServicesFalse = ($services: Service[]) => {
   let $statusServices = {};
-  $services.forEach(({ name }) => {
+  $services.forEach(({ id }) => {
     $statusServices = {
       ...$statusServices,
-      [name]: false,
+      [id]: false
     };
   });
   localStorage.setItem("services", JSON.stringify($statusServices));

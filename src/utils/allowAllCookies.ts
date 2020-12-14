@@ -11,10 +11,10 @@ const allowAllCookies = ($services: Service[]) => {
 
 const setAllLocalStoragesServicesTrue = ($services: Service[]) => {
   let $statusServices = {};
-  $services.forEach(({ name }) => {
+  $services.forEach(({ id }) => {
     $statusServices = {
       ...$statusServices,
-      [name]: true,
+      [id]: true
     };
   });
   localStorage.setItem("services", JSON.stringify($statusServices));

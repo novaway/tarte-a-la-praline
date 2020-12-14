@@ -28,7 +28,8 @@ const defaultClassName: ClassName = {
   modalContainer: "talp-modal-container",
   modalTitle: "talp-modal-title",
   modalButtonClose: "talp-modal-close",
-  modalField: "talp-modal-field"
+  modalField: "talp-modal-field",
+  modalFieldDescription: "talp-modal-field-description"
 };
 
 function initTALP({
@@ -56,19 +57,40 @@ function initTALP({
       actionListener(services);
     });
   }
-
-  return allowCustomCookies(services);
+  const serviceAvailableInLocalStorage = services
+    .map(service => {
+      service.value = storageServices[service.id];
+      return service;
+    })
+    .filter(service => service.value);
+  return allowCustomCookies(serviceAvailableInLocalStorage);
 }
 
 if (__DEV__) {
   require("../translations/fr");
   initTALP({
-    codeGa: "codeGa",
-    codeGtm: "codeGTM",
+    defaultServices: {
+      ga: {
+        code: "gaCode",
+        label: "google analitycs",
+        description:
+          "<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>"
+      },
+      hotjar: {
+        code: "hotjarCode",
+        label: "Hotjar"
+      },
+      gtm: {
+        code: "gtmCode",
+        label: "Google tag manager"
+      }
+    },
     customServices: [
       {
-        name: "My custom service",
-        callback: () => alert("yeah")
+        label: "My custom Service",
+        callback: () => alert("it's working!"),
+        description:
+          "<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>"
       }
     ]
   });
