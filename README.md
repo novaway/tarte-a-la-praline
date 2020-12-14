@@ -39,13 +39,29 @@ import initTALP from '@novaway/tarte-a-la-praline';
 
 **Example**
 
+This module comes with EN, FR and DE translations that should be imported before the init function.
+
 ```
-import '@novaway/tarte-a-la-praline/translations/en';
+import '@novaway/tarte-a-la-praline/translations/en'; // en, fr or de
 import initTALP from '@novaway/tarte-a-la-praline';
 
 initTALP({
-  codeGa: string,
-  codeHj: string
+  defaultServices: {
+      ga: {
+        code: "gaCode",
+        label: "google analitycs",
+        description:
+          "<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>"
+      },
+      hotjar: {
+        code: "hotjarCode",
+        label: "Hotjar"
+      },
+      gtm: {
+        code: "gtmCode",
+        label: "Google tag manager"
+      }
+    },
 })
 ```
 
