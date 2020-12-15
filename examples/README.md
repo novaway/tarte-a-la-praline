@@ -99,6 +99,8 @@ initTALP({
     BUTTON_VALIDATION: string;
     HEADER_MODAL: string;
     HEADER_MODAL_BUTTON_CLOSE: string;
+    SUBTITLE_MODALE: string;
+    MODAL_FOOTER_TEXT: string;
   },
   ...
 });
@@ -117,6 +119,7 @@ import initTALP from '@novaway/tarte-a-la-praline';
 initTALP({
   className: {
     banner: "cookie-banner",
+    bannerContent: "cookie-banner-content",
     text: "cookie-banner-text",
     button: "cookie-banner-button",
     modalContainer: "modal-container",
