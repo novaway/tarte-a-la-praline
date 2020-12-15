@@ -8,7 +8,7 @@
   HEADER_MODAL: "Cookie Einstellungen",
   HEADER_MODAL_BUTTON_CLOSE: "Schließen",
   SUBTITLE_MODALE: "",
-  LAST_TEXT_MODAL: ""
+  MODAL_FOOTER_TEXT: ""
 };
 
 window.TALP_SETTINGS = {};

@@ -30,7 +30,7 @@ export interface Language {
   BUTTON_VALIDATION: string;
   HEADER_MODAL: string;
   SUBTITLE_MODALE: string;
-  LAST_TEXT_MODAL: string;
+  MODAL_FOOTER_TEXT: string;
 }
 
 export interface ClassName {
