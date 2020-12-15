@@ -8,7 +8,7 @@ const Banner = (primaryColor: string): string => {
       }
     </style>
     <div id="banner-cookie" class="${className.banner}" style="color: ${primaryColor};">
-      <div class="talp-cookie-banner-content">
+      <div class="${className.bannerContent}">
         <p class="${className.text}">
           ${language.TEXT_BANNER}
         </p>

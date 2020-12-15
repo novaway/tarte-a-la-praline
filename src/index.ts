@@ -21,6 +21,7 @@ interface Props extends SetServicesProps {
 
 const defaultClassName: ClassName = {
   banner: "talp-cookie-banner",
+  bannerContent: "talp-cookie-banner-content",
   text: "talp-cookie-banner-text",
   button: "talp-cookie-banner-button",
   modalOverlay: "talp-modal-overlay",

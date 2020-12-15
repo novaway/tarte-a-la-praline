@@ -35,6 +35,7 @@ export interface Language {
 
 export interface ClassName {
   banner: string;
+  bannerContent: string;
   text: string;
   button: string;
   modalOverlay: string;
