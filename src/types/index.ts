@@ -30,10 +30,12 @@ export interface Language {
   BUTTON_VALIDATION: string;
   HEADER_MODAL: string;
   SUBTITLE_MODALE: string;
+  MODAL_FOOTER_TEXT: string;
 }
 
 export interface ClassName {
   banner: string;
+  bannerContent: string;
   text: string;
   button: string;
   modalOverlay: string;

@@ -16,6 +16,7 @@ const Modal = (primaryColor: string): string => {
         <div class="modal-content">
           <div id="js-custom-selection"></div>
         </div>
+        ${language.MODAL_FOOTER_TEXT}
       </div>
     </div>
   `;
