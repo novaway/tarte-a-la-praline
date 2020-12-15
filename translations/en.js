@@ -7,7 +7,8 @@ const EN = {
   BUTTON_VALIDATION: "OK",
   HEADER_MODAL: "Cookie management",
   HEADER_MODAL_BUTTON_CLOSE: "Close",
-  SUBTITLE_MODALE: ""
+  SUBTITLE_MODALE: "",
+  LAST_TEXT_MODAL: ""
 };
 
 window.TALP_SETTINGS = {};

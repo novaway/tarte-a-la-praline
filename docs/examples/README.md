@@ -99,6 +99,7 @@ initTALP({
     BUTTON_VALIDATION: string;
     HEADER_MODAL: string;
     HEADER_MODAL_BUTTON_CLOSE: string;
+    LAST_TEXT_MODAL: string;
   },
   ...
 });

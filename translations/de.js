@@ -7,7 +7,8 @@
   BUTTON_VALIDATION: "Bestätigen",
   HEADER_MODAL: "Cookie Einstellungen",
   HEADER_MODAL_BUTTON_CLOSE: "Schließen",
-  SUBTITLE_MODALE: ""
+  SUBTITLE_MODALE: "",
+  LAST_TEXT_MODAL: ""
 };
 
 window.TALP_SETTINGS = {};
