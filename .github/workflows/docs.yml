@@ -36,4 +36,4 @@ jobs:
                   branch: develop
                   message: "Update CHANGELOG.md file"
                   env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
