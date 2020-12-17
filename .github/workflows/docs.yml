@@ -27,13 +27,13 @@ jobs:
                   CLEAN: true
             - uses: actions/setup-node@v1
                 with:
-                node-version: '14'
+                    node-version: '14'
             - name: Updating CHANGELOG
-                run: npm run changelog
+              run: npm run changelog
             - uses: EndBug/add-and-commit@v5
                 with:
-                add: 'CHANGELOG.md'
-                branch: develop
-                message: 'Update CHANGELOG.md file'
-                env:
-                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                    add: 'CHANGELOG.md'
+                    branch: develop
+                    message: 'Update CHANGELOG.md file'
+                    env:
+                    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
