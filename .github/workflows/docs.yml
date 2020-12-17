@@ -1,4 +1,4 @@
-name: Documentation
+name: Documentation and CHANGELOG
 
 on:
     push:
@@ -7,10 +7,12 @@ on:
 
 jobs:
     docs:
-        name: Docs
+        name: Build docs and CHANGELOG
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v1
+            - uses: actions/checkout@v2
+              with:
+                  fetch-depth: 0
             - name: Copy README file
               uses: canastro/copy-file-action@master
               with:
@@ -23,3 +25,15 @@ jobs:
                   BRANCH: gh-pages
                   FOLDER: ./docs
                   CLEAN: true
+            - uses: actions/setup-node@v1
+                with:
+                node-version: '14'
+            - name: Updating CHANGELOG
+                run: npm run changelog
+            - uses: EndBug/add-and-commit@v5
+                with:
+                add: 'CHANGELOG.md'
+                branch: develop
+                message: 'Update CHANGELOG.md file'
+                env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
