@@ -162,6 +162,13 @@ initTALP({
 });
 ```
 
+If you using SASS :
+
+```
+@import ~tarte-a-la-praline/dist/cookieBanner.css
+@import ~tarte-a-la-praline/dist/modal.css
+```
+
 ## Time limit
 
 TALP makes it possible to set the duration before the next display of the banner. By default, the duration is 1 year.
