@@ -18,7 +18,7 @@ interface Props extends SetServicesProps {
   language?: Language;
   primaryColor?: string;
   className?: ClassName;
-  distanceToNow?: string;
+  cookieLifeTime?: string;
 }
 
 const defaultClassName: ClassName = {
@@ -39,7 +39,7 @@ function initTALP({
   language,
   primaryColor,
   className,
-  distanceToNow = "about 1 year",
+  cookieLifeTime = "about 1 year",
   ...params
 }: Props): void {
   if (language) {
@@ -61,7 +61,7 @@ function initTALP({
 
   if (
     formatDistanceToNow(new Date(storageServices.createdAt)).includes(
-      distanceToNow
+      cookieLifeTime
     )
   ) {
     clearServicesFromStorage();
@@ -106,7 +106,7 @@ if (__DEV__) {
           "<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>"
       }
     ],
-    distanceToNow: "minutes"
+    cookieLifeTime: "minutes"
   });
 }
 
