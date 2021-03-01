@@ -7,7 +7,7 @@ const denyAllCookies = ($services: Service[]) => {
 };
 
 const setAllLocalStoragesServicesFalse = ($services: Service[]) => {
-  let $statusServices = {};
+  let $statusServices = { createdAt: new Date() };
   $services.forEach(({ id }) => {
     $statusServices = {
       ...$statusServices,

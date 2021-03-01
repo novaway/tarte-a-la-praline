@@ -11,12 +11,17 @@ export const getStorageServices = (): StorageServices | null => {
 };
 
 export const setStorageServices = (services: Service[]): void => {
-  let $statusServices = {};
+  let $statusServices = { createdAt: new Date() };
+
   services.forEach(({ id, value }) => {
     $statusServices = {
       ...$statusServices,
       [id]: value
     };
   });
+
   localStorage.setItem("services", JSON.stringify($statusServices));
 };
+
+export const clearServicesFromStorage = () =>
+  localStorage.removeItem("services");

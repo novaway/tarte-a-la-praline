@@ -38,6 +38,8 @@ export const closeModal = () => {
 };
 
 export const showBanner = (primaryColor: string): void => {
+  insertBanner();
+
   const $cookieBanner = document.getElementById("js-cookie-banner-container");
   const $modalCookie = document.getElementById("js-cookie-modal");
 
