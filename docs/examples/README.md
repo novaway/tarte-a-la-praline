@@ -161,3 +161,19 @@ initTALP({
   ...
 });
 ```
+
+## Time limit
+
+TALP makes it possible to set the duration before the next display of the banner. By default, the duration is 1 year.
+
+The **distanceToNow** parameter is based on the [formatDistanceToNow](https://date-fns.org/docs/formatDistanceToNow) function of the [date-fns](https://date-fns.org/) module. With this, it's possible to fine-tune the time control before the banner is displayed again: minutes, hours, days, weeks, months and year.
+
+```
+import '@novaway/tarte-a-la-praline/translations/de';
+import initTALP from '@novaway/tarte-a-la-praline';
+
+initTALP({
+  ...,
+  distanceToNow: '1 day'
+});
+```
