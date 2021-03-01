@@ -6,7 +6,7 @@ import { Service } from "../types";
 const allowAllCookies = ($services: Service[]) => {
   setAllLocalStoragesServicesTrue($services);
   $services.forEach(({ callback }) => callback());
-  setDisplay("banner-cookie", "none");
+  setDisplay("js-cookie-banner", "none");
 };
 
 const setAllLocalStoragesServicesTrue = ($services: Service[]) => {

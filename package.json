@@ -38,7 +38,7 @@
         "css-loader": "^3.4.2",
         "css-modules-typescript-loader": "^2.0.1",
         "cypress": "^6.1.0",
-        "cypress-localstorage-commands": "^1.1.9",
+        "cypress-localstorage-commands": "^1.4.1",
         "html-webpack-plugin": "^3.2.0",
         "jest": "^26.1.0",
         "jest-localstorage-mock": "^2.4.0",

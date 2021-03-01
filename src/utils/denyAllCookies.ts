@@ -2,7 +2,7 @@ import setDisplay from "./setDisplay";
 import { Service } from "../types";
 
 const denyAllCookies = ($services: Service[]) => {
-  setDisplay("banner-cookie", "none");
+  setDisplay("js-cookie-banner", "none");
   setAllLocalStoragesServicesFalse($services);
 };
 
