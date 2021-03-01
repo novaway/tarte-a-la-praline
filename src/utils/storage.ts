@@ -25,3 +25,6 @@ export const setStorageServices = (services: Service[]): void => {
 
 export const clearServicesFromStorage = () =>
   localStorage.removeItem("services");
+
+export const setCreatedAtKey = (services: StorageServices) =>
+  localStorage.setItem("services", JSON.stringify(services));

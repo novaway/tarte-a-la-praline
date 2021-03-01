@@ -6,7 +6,11 @@ import Modal from "./templates/Modal";
 import { actionListener } from "./utils/actionListener";
 import showElement from "./utils/setDisplay";
 import { Service, StorageServices, Language, ClassName } from "./types";
-import { clearServicesFromStorage, getStorageServices } from "./utils/storage";
+import {
+  clearServicesFromStorage,
+  getStorageServices,
+  setCreatedAtKey
+} from "./utils/storage";
 import { insertBanner, showBanner } from "./utils/banner";
 import { setServices, SetServicesProps } from "./utils/services";
 import allowCustomCookies from "./utils/allowCustomCookies";
@@ -57,6 +61,13 @@ function initTALP({
   if (storageServices === null) {
     showBanner(primaryColor);
     return actionListener(services);
+  }
+
+  if (storageServices.createdAt === undefined) {
+    setCreatedAtKey({
+      ...storageServices,
+      createdAt: new Date().toISOString()
+    });
   }
 
   if (
