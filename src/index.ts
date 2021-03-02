@@ -14,7 +14,7 @@ import {
 import { insertBanner, showBanner } from "./utils/banner";
 import { setServices, SetServicesProps } from "./utils/services";
 import allowCustomCookies from "./utils/allowCustomCookies";
-import formatDistanceToNow from "date-fns/formatDistanceToNow";
+import differenceInMonths from "date-fns/differenceInMonths";
 
 const __DEV__ = process.env.NODE_ENV !== "production";
 
@@ -22,7 +22,7 @@ interface Props extends SetServicesProps {
   language?: Language;
   primaryColor?: string;
   className?: ClassName;
-  cookieLifeTime?: string;
+  cookieLifeTime?: number;
 }
 
 const defaultClassName: ClassName = {
@@ -43,7 +43,7 @@ function initTALP({
   language,
   primaryColor,
   className,
-  cookieLifeTime = "about 1 year",
+  cookieLifeTime = 13,
   ...params
 }: Props): void {
   if (language) {
@@ -70,11 +70,7 @@ function initTALP({
     });
   }
 
-  if (
-    formatDistanceToNow(new Date(storageServices.createdAt)).includes(
-      cookieLifeTime
-    )
-  ) {
+  if (Math.abs(differenceInMonths(new Date(storageServices.createdAt), new Date())) >= cookieLifeTime) {
     clearServicesFromStorage();
     showBanner(primaryColor);
     return actionListener(services);
@@ -117,7 +113,7 @@ if (__DEV__) {
           "<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>"
       }
     ],
-    cookieLifeTime: "minutes"
+    cookieLifeTime: 13
   });
 }
 
