@@ -11,7 +11,10 @@ export const getStorageServices = (): StorageServices | null => {
 };
 
 export const setStorageServices = (services: Service[]): void => {
-  let $statusServices = { createdAt: new Date() };
+  const createdAt = new Date();
+  createdAt.setSeconds(0, 0);
+
+  let $statusServices = { createdAt };
 
   services.forEach(({ id, value }) => {
     $statusServices = {
