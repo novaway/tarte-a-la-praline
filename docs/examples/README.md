@@ -171,9 +171,7 @@ If you using SASS :
 
 ## Time limit
 
-TALP makes it possible to set the duration before the next display of the banner. By default, the duration is 1 year.
-
-The **cookieLifeTime** parameter is based on the [formatcookieLifeTime](https://date-fns.org/docs/formatcookieLifeTime) function of the [date-fns](https://date-fns.org/) module. With this, it's possible to fine-tune the time control before the banner is displayed again: minutes, hours, days, weeks, months and year.
+TALP makes it possible to set the month(s) duration before the next display of the banner. By default, the duration is 13 months.
 
 ```
 import '@novaway/tarte-a-la-praline/translations/de';
@@ -181,6 +179,6 @@ import initTALP from '@novaway/tarte-a-la-praline';
 
 initTALP({
   ...,
-  cookieLifeTime: '1 day'
+  cookieLifeTime: 2 // Banner will be show after 2 months from current date
 });
 ```
