@@ -16,7 +16,7 @@
         "build-dev": "webpack -d -w --mode development",
         "build-prod": "webpack -p --mode production",
         "serve": "serve ./dist -p 3000",
-        "cypress:open": "npx cypress open",
+        "cypress:open": "cypress open",
         "changelog": "npx auto-changelog -p --output CHANGELOG.md --commit-limit false --template keepachangelog"
     },
     "repository": {
@@ -37,7 +37,8 @@
         "concurrently": "^5.2.0",
         "css-loader": "^3.4.2",
         "css-modules-typescript-loader": "^2.0.1",
-        "cypress-localstorage-commands": "^1.1.9",
+        "cypress": "^6.1.0",
+        "cypress-localstorage-commands": "^1.4.1",
         "html-webpack-plugin": "^3.2.0",
         "jest": "^26.1.0",
         "jest-localstorage-mock": "^2.4.0",

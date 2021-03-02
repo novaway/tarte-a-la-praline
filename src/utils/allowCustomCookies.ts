@@ -8,7 +8,7 @@ const allowCustomCookies = (services: Service[]): void => {
   });
 
   showElement("js-custom-selection", "none");
-  showElement("banner-cookie", "none");
+  showElement("js-cookie-banner", "none");
 };
 
 export default allowCustomCookies;

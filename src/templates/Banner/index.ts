@@ -7,7 +7,7 @@ const Banner = (primaryColor: string): string => {
         color: ${primaryColor}
       }
     </style>
-    <div id="banner-cookie" class="${className.banner}" style="color: ${primaryColor};">
+    <div id="js-cookie-banner" class="${className.banner}" style="color: ${primaryColor};">
       <div class="${className.bannerContent}">
         <p class="${className.text}">
           ${language.TEXT_BANNER}
