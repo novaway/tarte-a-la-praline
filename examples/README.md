@@ -46,7 +46,7 @@ initTALP({
   customServices: [
     {
       label: "matomo Service",
-      callBack: initMatomoTagManager,
+      callback: initMatomoTagManager,
       description:
           "<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>"
     }
@@ -159,5 +159,26 @@ import initTALP from '@novaway/tarte-a-la-praline';
 
 initTALP({
   ...
+});
+```
+
+If you using SASS :
+
+```
+@import ~tarte-a-la-praline/dist/cookieBanner.css
+@import ~tarte-a-la-praline/dist/modal.css
+```
+
+## Time limit
+
+TALP makes it possible to set the month(s) duration before the next display of the banner. By default, the duration is 13 months.
+
+```
+import '@novaway/tarte-a-la-praline/translations/de';
+import initTALP from '@novaway/tarte-a-la-praline';
+
+initTALP({
+  ...,
+  cookieLifeTime: 2 // Banner will be show after 2 months from current date
 });
 ```
