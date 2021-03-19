@@ -10,7 +10,11 @@ const allowAllCookies = ($services: Service[]) => {
 };
 
 const setAllLocalStoragesServicesTrue = ($services: Service[]) => {
-  let $statusServices = {};
+  const createdAt = new Date();
+  createdAt.setSeconds(0, 0);
+
+  let $statusServices = { createdAt };
+
   $services.forEach(({ id }) => {
     $statusServices = {
       ...$statusServices,

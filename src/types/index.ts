@@ -19,7 +19,8 @@ export interface DefaultService {
 }
 
 export interface StorageServices {
-  [key: string]: boolean;
+  createdAt: string;
+  [key: string]: boolean | string;
 }
 
 export interface Language {

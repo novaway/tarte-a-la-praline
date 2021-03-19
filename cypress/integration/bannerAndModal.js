@@ -1,4 +1,5 @@
 import "cypress-localstorage-commands";
+import format from "date-fns/format";
 
 const find = id => cy.get(id);
 
@@ -23,9 +24,12 @@ describe("Cookie", () => {
     find(".js-cookie-button-allow").should("exist");
     find(".js-cookie-button-allow").click();
 
+    const date = new Date();
+    date.setSeconds(0, 0);
+
     cy.getLocalStorage("services").should(
       "equal",
-      '{"googleAnalitycs":true,"googleTagManager":true,"hotjar":true,"myCustomService":true}'
+      `{"createdAt":"${date.toISOString()}","googleAnalitycs":true,"googleTagManager":true,"hotjar":true,"myCustomService":true}`
     );
 
     find("#js-cookie-banner").should("be.not.visible");
@@ -41,9 +45,12 @@ describe("Cookie", () => {
     find(".js-cookie-button-deny").should("exist");
     find(".js-cookie-button-deny").click();
 
+    const date = new Date();
+    date.setSeconds(0, 0);
+
     cy.getLocalStorage("services").should(
       "equal",
-      '{"googleAnalitycs":false,"googleTagManager":false,"hotjar":false,"myCustomService":false}'
+      `{"createdAt":"${date.toISOString()}","googleAnalitycs":false,"googleTagManager":false,"hotjar":false,"myCustomService":false}`
     );
 
     find("#js-cookie-banner").should("be.not.visible");
@@ -70,9 +77,12 @@ describe("Cookie", () => {
     find(".js-button-save-custom").should("be.visible");
     find(".js-button-save-custom").click();
 
+    const date = new Date();
+    date.setSeconds(0, 0);
+
     cy.getLocalStorage("services").should(
       "equal",
-      '{"googleAnalitycs":false,"googleTagManager":true,"hotjar":false,"myCustomService":true}'
+      `{"createdAt":"${date.toISOString()}","googleAnalitycs":false,"googleTagManager":true,"hotjar":false,"myCustomService":true}`
     );
 
     find("#js-cookie-modal").should("not.have.class", "is-open");
