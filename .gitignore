@@ -2,3 +2,5 @@ node_modules
 dist
 .vscode
 docs/README.md
+.idea
+cypress/videos

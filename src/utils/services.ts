@@ -53,7 +53,7 @@ export const setServices = ({
       ...services,
       setService(
         defaultServices.hotjar.label,
-        () => initHotjar(defaultServices.hotjar.code),
+        () => initHotjar(defaultServices.hotjar.id, defaultServices.hotjar.sv),
         defaultServices.hotjar.description
       )
     ];

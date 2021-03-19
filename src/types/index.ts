@@ -8,12 +8,19 @@ export interface Service {
 
 export interface DefaultServices {
   ga?: DefaultService;
-  hotjar?: DefaultService;
+  hotjar?: HotjarService;
   gtm?: DefaultService;
 }
 
 export interface DefaultService {
   code: string;
+  label: string;
+  description?: string;
+}
+
+export interface HotjarService {
+  id: string;
+  sv: string;
   label: string;
   description?: string;
 }
