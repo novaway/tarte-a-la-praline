@@ -1,13 +1,13 @@
 // @ts-nocheck
 
-const initHotjar = code => {
+const initHotjar = (id, sv) => {
   (function(h, o, t, j, a, r) {
     h.hj =
       h.hj ||
       function() {
         (h.hj.q = h.hj.q || []).push(arguments);
       };
-    h._hjSettings = { hjid: parseInt(code), hjsv: 5 };
+    h._hjSettings = { hjid: parseInt(id), hjsv: parseInt(sv) };
     a = o.getElementsByTagName("head")[0];
     r = o.createElement("script");
     r.async = 1;
