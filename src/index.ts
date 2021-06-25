@@ -46,8 +46,12 @@ function initTALP({
   cookieLifeTime = 13,
   ...params
 }: Props): void {
+
   if (language) {
-    (window as any).TALP_SETTINGS.language = language;
+    (window as any).TALP_SETTINGS.language = {
+      ...TALP_SETTINGS.language,
+      ...(language ?? {})
+    };
   }
 
   (window as any).TALP_SETTINGS.className = {
@@ -89,6 +93,9 @@ function initTALP({
 if (__DEV__) {
   require("../translations/fr");
   initTALP({
+    language: {
+      TEXT_BANNER: 'TODO',
+    },
     defaultServices: {
       ga: {
         code: "gaCode",
