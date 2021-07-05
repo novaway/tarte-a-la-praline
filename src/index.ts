@@ -19,9 +19,13 @@ import differenceInMonths from "date-fns/differenceInMonths";
 const __DEV__ = process.env.NODE_ENV !== "production";
 
 interface Props extends SetServicesProps {
-  language?: Language;
+  language?: {
+    [key in keyof Language]?: string
+  };
   primaryColor?: string;
-  className?: ClassName;
+  className?: {
+    [key in keyof ClassName]?: string
+  };
   cookieLifeTime?: number;
 }
 
@@ -46,8 +50,12 @@ function initTALP({
   cookieLifeTime = 13,
   ...params
 }: Props): void {
+
   if (language) {
-    (window as any).TALP_SETTINGS.language = language;
+    (window as any).TALP_SETTINGS.language = {
+      ...(window as any).TALP_SETTINGS.language,
+      ...(language ?? {})
+    };
   }
 
   (window as any).TALP_SETTINGS.className = {
@@ -89,6 +97,9 @@ function initTALP({
 if (__DEV__) {
   require("../translations/fr");
   initTALP({
+    language:{
+      TEXT_BANNER : "En acceptant les cookies, vous améliorez votre expérience utilisateur",
+    },
     defaultServices: {
       ga: {
         code: "gaCode",
