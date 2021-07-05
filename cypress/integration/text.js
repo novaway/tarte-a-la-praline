@@ -2,14 +2,14 @@ import "cypress-localstorage-commands";
 
 const find = id => cy.get(id);
 
-describe("Cookie", () => {
+describe("Avoid undefined text", () => {
   before(() => cy.clearLocalStorageSnapshot());
 
-  it("Open and close modal", () => {
+  it("Change one text", () => {
     cy.visit("/");
 
     find(".talp-cookie-banner-text").invoke('text').then((text) => {
-      expect(text.trim()).equal('TODO')
+      expect(text.trim()).equal('En acceptant les cookies, vous améliorez votre expérience utilisateur')
     });
 
     find(".js-cookie-button-allow").invoke('text').then((text) => {
