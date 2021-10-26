@@ -63,6 +63,28 @@ function initTALP({
     ...(className ?? {})
   };
 
+  const changeChoicesInModal = () =>{
+    localStorage.removeItem('services');
+    initTALP({
+      language,
+      primaryColor,
+      className,
+      cookieLifeTime = 13,
+      ...params
+    });
+    const $cookieBanner = document.getElementById('js-cookie-banner');
+    $cookieBanner.hidden = true;
+    const $buttonCustomizeCookie = document.querySelector(
+      '.js-cookie-button-customize',
+    );
+    $buttonCustomizeCookie.click();
+  }
+
+  const $buttonOpenModal = document.querySelectorAll(params.openModalClassName);
+  $buttonOpenModal.forEach(element => {
+    element.addEventListener('click', changeChoicesInModal);
+  });
+
   const services: Service[] = setServices(params);
   const storageServices = getStorageServices();
 
@@ -100,6 +122,7 @@ if (__DEV__) {
     language:{
       TEXT_BANNER : "En acceptant les cookies, vous améliorez votre expérience utilisateur",
     },
+    openModalClassName : '.open-new-modal',
     defaultServices: {
       ga: {
         code: "gaCode",
