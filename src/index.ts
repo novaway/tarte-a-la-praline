@@ -23,6 +23,7 @@ interface Props extends SetServicesProps {
     [key in keyof Language]?: string
   };
   primaryColor?: string;
+  openModalClassName?: string;
   className?: {
     [key in keyof ClassName]?: string
   };
@@ -65,16 +66,17 @@ function initTALP({
 
   const changeChoicesInModal = () =>{
     localStorage.removeItem('services');
+    const cookieLifeTime = 13;
     initTALP({
       language,
       primaryColor,
       className,
-      cookieLifeTime = 13,
+      cookieLifeTime,
       ...params
     });
     const $cookieBanner = document.getElementById('js-cookie-banner');
     $cookieBanner.hidden = true;
-    const $buttonCustomizeCookie = document.querySelector(
+    const $buttonCustomizeCookie:HTMLButtonElement | HTMLLinkElement = document.querySelector(
       '.js-cookie-button-customize',
     );
     $buttonCustomizeCookie.click();
