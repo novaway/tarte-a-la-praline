@@ -4,6 +4,7 @@ import initHotjar from "./services/hotjar";
 import Banner from "./templates/Banner";
 import Modal from "./templates/Modal";
 import { actionListener } from "./utils/actionListener";
+import deconstructTALP from "./utils/deconstructTalp"
 import showElement from "./utils/setDisplay";
 import { Service, StorageServices, Language, ClassName } from "./types";
 import {
@@ -66,6 +67,7 @@ function initTALP({
 
   const changeChoicesInModal = () =>{
     localStorage.removeItem('services');
+    deconstructTALP();
     const cookieLifeTime = 13;
     initTALP({
       language,
