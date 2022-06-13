@@ -93,11 +93,6 @@ function initTALP({
   const storageServices = getStorageServices();
 
   if (storageServices === null) {
-    services.forEach(({ executeIfDeny }) => {
-      if(executeIfDeny){
-        executeIfDeny();
-      }
-    });
     showBanner(primaryColor);
     return actionListener(services);
   }
@@ -114,6 +109,19 @@ function initTALP({
     showBanner(primaryColor);
     return actionListener(services);
   }
+
+  const serviceNotAvailableInLocalStorage = services
+    .map(service => {
+      service.value = storageServices[service.id] as boolean;
+      return service;
+    })
+    .filter(service => !service.value);
+
+    serviceNotAvailableInLocalStorage.forEach(({ value, executeIfDeny }) => {
+      if( value == false && executeIfDeny){
+        executeIfDeny();
+      }
+    });
 
   const serviceAvailableInLocalStorage = services
     .map(service => {
