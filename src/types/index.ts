@@ -10,6 +10,7 @@ export interface DefaultServices {
   ga?: DefaultService;
   hotjar?: HotjarService;
   gtm?: DefaultService;
+  matomo?: MatomoService;
 }
 
 export interface DefaultService {
@@ -21,6 +22,13 @@ export interface DefaultService {
 export interface HotjarService {
   id: string;
   sv: string;
+  label: string;
+  description?: string;
+}
+
+export interface MatomoService {
+  url: string;
+  id: string;
   label: string;
   description?: string;
 }

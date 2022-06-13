@@ -142,6 +142,11 @@ if (__DEV__) {
       gtm: {
         code: "gtmCode",
         label: "Google tag manager"
+      },
+      matomo: {
+        id: "1",
+        url : 'matomoUrl',
+        label: "Matomo"
       }
     },
     customServices: [

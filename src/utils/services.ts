@@ -1,6 +1,7 @@
 import initGa from "../services/ga";
 import initGtm from "../services/gtm";
 import initHotjar from "../services/hotjar";
+import initMatomo from "../services/matomo";
 import { Service, DefaultServices } from "../types";
 import camelCase from "./camelCase";
 
@@ -55,6 +56,17 @@ export const setServices = ({
         defaultServices.hotjar.label,
         () => initHotjar(defaultServices.hotjar.id, defaultServices.hotjar.sv),
         defaultServices.hotjar.description
+      )
+    ];
+  }
+
+  if (defaultServices.matomo !== undefined) {
+    services = [
+      ...services,
+      setService(
+        defaultServices.matomo.label,
+        () => initMatomo(defaultServices.matomo.url, defaultServices.matomo.id),
+        defaultServices.matomo.description
       )
     ];
   }
