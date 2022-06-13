@@ -5,7 +5,6 @@ const initMatomo = (url, id) => {
     /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
     _paq.push(['trackPageView']);
     _paq.push(['enableLinkTracking']);
-    _paq.push(['requireCookieConsent']);
     (function() {
       var u=`//${url}/`;
       _paq.push(['setTrackerUrl', u+'matomo.php']);

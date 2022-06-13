@@ -4,6 +4,7 @@ export interface Service {
   callback: () => void;
   description?: string;
   value?: boolean;
+  executeIfDeny?: () => void;
 }
 
 export interface DefaultServices {
@@ -17,6 +18,7 @@ export interface DefaultService {
   code: string;
   label: string;
   description?: string;
+  executeIfDeny?: () => void;
 }
 
 export interface HotjarService {
@@ -24,6 +26,7 @@ export interface HotjarService {
   sv: string;
   label: string;
   description?: string;
+  executeIfDeny?: () => void;
 }
 
 export interface MatomoService {
@@ -31,6 +34,7 @@ export interface MatomoService {
   id: string;
   label: string;
   description?: string;
+  executeIfDeny?: () => void;
 }
 
 export interface StorageServices {
