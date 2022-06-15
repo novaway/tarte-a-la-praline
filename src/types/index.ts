@@ -4,18 +4,21 @@ export interface Service {
   callback: () => void;
   description?: string;
   value?: boolean;
+  executeIfDeny?: () => void;
 }
 
 export interface DefaultServices {
   ga?: DefaultService;
   hotjar?: HotjarService;
   gtm?: DefaultService;
+  matomo?: MatomoService;
 }
 
 export interface DefaultService {
   code: string;
   label: string;
   description?: string;
+  executeIfDeny?: () => void;
 }
 
 export interface HotjarService {
@@ -23,6 +26,15 @@ export interface HotjarService {
   sv: string;
   label: string;
   description?: string;
+  executeIfDeny?: () => void;
+}
+
+export interface MatomoService {
+  url: string;
+  id: string;
+  label: string;
+  description?: string;
+  executeIfDeny?: () => void;
 }
 
 export interface StorageServices {

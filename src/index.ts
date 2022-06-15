@@ -110,6 +110,19 @@ function initTALP({
     return actionListener(services);
   }
 
+  const serviceNotAvailableInLocalStorage = services
+    .map(service => {
+      service.value = storageServices[service.id] as boolean;
+      return service;
+    })
+    .filter(service => !service.value);
+
+    serviceNotAvailableInLocalStorage.forEach(({ value, executeIfDeny }) => {
+      if( value == false && executeIfDeny){
+        executeIfDeny();
+      }
+    });
+
   const serviceAvailableInLocalStorage = services
     .map(service => {
       service.value = storageServices[service.id] as boolean;
@@ -142,12 +155,19 @@ if (__DEV__) {
       gtm: {
         code: "gtmCode",
         label: "Google tag manager"
+      },
+      matomo: {
+        id: "1",
+        url : 'matomoUrl',
+        executeIfDeny : () => console.log('denied matomo'),
+        label: "Matomo",
       }
     },
     customServices: [
       {
         label: "My custom Service",
         callback: () => console.log("set custom service callback"),
+        executeIfDeny : () => console.log('denied custom service'),
         description:
           "<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>"
       }

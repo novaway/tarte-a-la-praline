@@ -4,6 +4,7 @@ import { Service } from "../types";
 const denyAllCookies = ($services: Service[]) => {
   setDisplay("js-cookie-banner", "none");
   setAllLocalStoragesServicesFalse($services);
+  $services.forEach(({ executeIfDeny }) => executeIfDeny && executeIfDeny());
 };
 
 const setAllLocalStoragesServicesFalse = ($services: Service[]) => {

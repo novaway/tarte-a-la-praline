@@ -16,11 +16,14 @@ export const setStorageServices = (services: Service[]): void => {
 
   let $statusServices = { createdAt };
 
-  services.forEach(({ id, value }) => {
+  services.forEach(({ id, value, executeIfDeny }) => {
     $statusServices = {
       ...$statusServices,
       [id]: value
     };
+    if( value == false && executeIfDeny){
+      executeIfDeny();
+    }
   });
 
   localStorage.setItem("services", JSON.stringify($statusServices));
