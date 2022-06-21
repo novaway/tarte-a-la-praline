@@ -27,6 +27,7 @@ export const setStorageServices = (services: Service[]): void => {
   });
 
   localStorage.setItem("services", JSON.stringify($statusServices));
+  localStorage.setItem("oldServices", JSON.stringify($statusServices));
 };
 
 export const clearServicesFromStorage = () =>
