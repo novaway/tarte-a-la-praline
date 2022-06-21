@@ -16,6 +16,7 @@ import { insertBanner, showBanner } from "./utils/banner";
 import { setServices, SetServicesProps } from "./utils/services";
 import allowCustomCookies from "./utils/allowCustomCookies";
 import differenceInMonths from "date-fns/differenceInMonths";
+import checkInputWhenReOpenModal from "./utils/checkInput";
 
 const __DEV__ = process.env.NODE_ENV !== "production";
 
@@ -82,8 +83,9 @@ function initTALP({
       '.js-cookie-button-customize',
     );
     $buttonCustomizeCookie.click();
+    checkInputWhenReOpenModal();
   }
-
+  
   const $buttonOpenModal = document.querySelectorAll(params.openModalClassName);
   $buttonOpenModal.forEach(element => {
     element.addEventListener('click', changeChoicesInModal);
