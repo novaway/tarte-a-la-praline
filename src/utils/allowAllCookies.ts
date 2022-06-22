@@ -22,6 +22,7 @@ const setAllLocalStoragesServicesTrue = ($services: Service[]) => {
     };
   });
   localStorage.setItem("services", JSON.stringify($statusServices));
+  localStorage.setItem("oldServices", JSON.stringify($statusServices));
 };
 
 export default allowAllCookies;

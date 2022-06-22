@@ -10,7 +10,7 @@ const initMatomo = (url, id) => {
       _paq.push(['setTrackerUrl', u+'matomo.php']);
       _paq.push(['setSiteId', id]);
       var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-      g.async=true; g.src='//cdn.matomo.cloud/novaway.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
     })();
   }
 
