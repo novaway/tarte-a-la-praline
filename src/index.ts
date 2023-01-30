@@ -17,6 +17,7 @@ import { setServices, SetServicesProps } from "./utils/services";
 import allowCustomCookies from "./utils/allowCustomCookies";
 import differenceInMonths from "date-fns/differenceInMonths";
 import checkInputWhenReOpenModal from "./utils/checkInput";
+import allowCookiesCategorie from "./utils/allowCookieCategorie";
 
 const __DEV__ = process.env.NODE_ENV !== "production";
 
@@ -85,7 +86,17 @@ function initTALP({
     );
     $buttonCustomizeCookie.click();
     checkInputWhenReOpenModal();
+    allowCookiesCategorie()
   }
+
+  setTimeout(() => {
+    const openModalButton = document.querySelector('.js-cookie-button-customize')
+    if(openModalButton){
+      openModalButton.addEventListener('click', () => {
+        allowCookiesCategorie()
+      })
+    }
+  }, 100)
   
   setTimeout(() => {
     const $denyButton:HTMLLinkElement = document.querySelector('.js-cookie-button-deny')
@@ -156,12 +167,12 @@ if (__DEV__) {
         code: "gaCode",
         label: "google analitycs",
         description:
-          "<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>"
+          "<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>",
       },
       hotjar: {
         id: "hotjarId",
         sv: "hotjarSv",
-        label: "Hotjar"
+        label: "Hotjar",
       },
       gtm: {
         code: "gtmCode",
@@ -177,10 +188,11 @@ if (__DEV__) {
     customServices: [
       {
         label: "My custom Service",
+        categorie: 'perf',
         callback: () => console.log("set custom service callback"),
         executeIfDeny : () => console.log('denied custom service'),
         description:
-        "<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>"
+          "<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>",
         }
     ],
     cookieLifeTime: 13

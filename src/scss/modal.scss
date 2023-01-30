@@ -2,90 +2,139 @@
    Modal
    =========================================================================== */
 
-.talp-modal {
-  &-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 9999;
-    background: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: 0.2s;
-
-    .is-open & {
-      opacity: 1;
-      visibility: visible;
+   .talp-modal {
+    &-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 9999;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.2s;
+  
+      .is-open & {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  
+    &-container {
+      background-color: #fff;
+      padding: 30px;
+      width: 80%;
+      max-height: 100vh;
+      border-radius: 4px;
+      overflow-y: auto;
+      box-sizing: border-box;
+      transition: 0.2s;
+      transform: scale(0.9);
+  
+      .is-open & {
+        transform: scale(1);
+      }
+  
+      @media screen and (min-width: 1024px) {
+        width: 50%;
+      }
+    }
+  
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  
+    &-title {
+      margin-top: 0;
+      margin-bottom: 0;
+      font-weight: 600;
+      font-size: 1.25rem;
+      line-height: 1.25;
+      box-sizing: border-box;
+    }
+  
+    &-field {
+      display: flex;
+      align-items: center;
+      &-description {
+        padding-left: 20px;
+        margin-bottom: 10px;
+      }
+    }
+  
+    &-close {
+      cursor: pointer;
+      background: transparent;
+      border: 0;
+      font-size: 28px;
+  
+      &::before {
+        content: "\2715";
+      }
+    }
+  
+    &-content {
+      margin-top: 1rem;
+      line-height: 1.5;
+      color: rgba(0, 0, 0, 0.8);
+  
+      button {
+        margin-top: 2rem;
+      }
+    }
+    &-categorie-header{
+      display : flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  
+    //Switch input
+  
+    &-switch {
+      position: relative;
+      display: inline-block;
+      width: 30px;
+      height: 18px;
+      & > .input-categorie{
+        opacity: 0;
+        width: 0;
+        height: 0;
+        &:checked + .talp-modal-slider {
+          background-color: black;
+        }
+        &:focus + .talp-modal-slider {
+          box-shadow: 0 0 1px black;
+        }
+        &:checked + .talp-modal-slider:before {
+          transform: translateX(10px);
+        }
+      }
+    }
+    
+    &-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+      &:before {
+        position: absolute;
+        content: "";
+        height: 10px;
+        width: 10px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: .4s;
+      }
     }
   }
-
-  &-container {
-    background-color: #fff;
-    padding: 30px;
-    width: 80%;
-    max-height: 100vh;
-    border-radius: 4px;
-    overflow-y: auto;
-    box-sizing: border-box;
-    transition: 0.2s;
-    transform: scale(0.9);
-
-    .is-open & {
-      transform: scale(1);
-    }
-
-    @media screen and (min-width: 1024px) {
-      width: 50%;
-    }
-  }
-
-  &-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  &-title {
-    margin-top: 0;
-    margin-bottom: 0;
-    font-weight: 600;
-    font-size: 1.25rem;
-    line-height: 1.25;
-    box-sizing: border-box;
-  }
-
-  &-field {
-    display: flex;
-    align-items: center;
-    &-description {
-      padding-left: 20px;
-      margin-bottom: 10px;
-    }
-  }
-
-  &-close {
-    cursor: pointer;
-    background: transparent;
-    border: 0;
-    font-size: 28px;
-
-    &::before {
-      content: "\2715";
-    }
-  }
-
-  &-content {
-    margin-top: 1rem;
-    line-height: 1.5;
-    color: rgba(0, 0, 0, 0.8);
-
-    button {
-      margin-top: 2rem;
-    }
-  }
-}

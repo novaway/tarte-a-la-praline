@@ -8,7 +8,11 @@ const FR = {
   HEADER_MODAL: "Gestion des cookies",
   HEADER_MODAL_BUTTON_CLOSE: "Fermer",
   SUBTITLE_MODALE: "",
-  MODAL_FOOTER_TEXT: ""
+  MODAL_FOOTER_TEXT: "",
+  COOKIE_PERF: "Cookies de performance",
+  COOKIE_ADS: "Cookies publicitaires",
+  COOKIE_MEASURE: "Cookies de mesure d'audience",
+  COOKIE_OTHER: "Cookies non-classés"
 };
 
 window.TALP_SETTINGS = {};
