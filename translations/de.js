@@ -8,7 +8,11 @@
   HEADER_MODAL: "Cookie Einstellungen",
   HEADER_MODAL_BUTTON_CLOSE: "Schließen",
   SUBTITLE_MODALE: "",
-  MODAL_FOOTER_TEXT: ""
+  MODAL_FOOTER_TEXT: "",
+  COOKIE_PERF: "Performance cookies",
+  COOKIE_ADS: "Werbe cookies",
+  COOKIE_MEASURE: "Cookies zur Zielgruppenmessung",
+  COOKIE_OTHER: "Andere cookies"
 };
 
 window.TALP_SETTINGS = {};

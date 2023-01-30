@@ -10,12 +10,14 @@ const setService = (
   callback: () => void,
   description?: string,
   executeIfDeny?: () => void,
+  categorie?: string
 ): Service => ({
   id: camelCase(label),
   label,
   callback,
   description,
   executeIfDeny,
+  categorie
 });
 
 export interface SetServicesProps {
@@ -37,6 +39,7 @@ export const setServices = ({
         () => initGa(defaultServices.ga.code),
         defaultServices.ga.description,
         defaultServices.ga.executeIfDeny,
+        'measure'
       )
     ];
   }
@@ -49,6 +52,7 @@ export const setServices = ({
         () => initGtm(defaultServices.gtm.code),
         defaultServices.gtm.description,
         defaultServices.gtm.executeIfDeny,
+        'measure'
       )
     ];
   }
@@ -61,6 +65,7 @@ export const setServices = ({
         () => initHotjar(defaultServices.hotjar.id, defaultServices.hotjar.sv),
         defaultServices.hotjar.description,
         defaultServices.hotjar.executeIfDeny,
+        'measure',
       )
     ];
   }
@@ -73,6 +78,7 @@ export const setServices = ({
         () => initMatomo(defaultServices.matomo.url, defaultServices.matomo.id),
         defaultServices.matomo.description,
         defaultServices.matomo.executeIfDeny,
+        'measure'
       )
     ];
   }
@@ -86,6 +92,7 @@ export const setServices = ({
           customService.callback,
           customService.description,
           customService.executeIfDeny,
+          customService.categorie ? customService.categorie : 'autre'
         )
       ];
     });
