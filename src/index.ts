@@ -68,6 +68,14 @@ function initTALP({
     ...(className ?? {})
   };
 
+  document.addEventListener('click', (e) => {
+    const $cookieModal:any = document.getElementById('js-cookie-modal')
+    if (document.querySelector('.talp-modal-overlay').classList.contains((e.target as any).classList)){
+      $cookieModal.classList.remove('is-open');
+      $cookieModal.ariaHidden = "true"
+    } 
+  });
+
   const changeChoicesInModal = () =>{
     localStorage.removeItem('services');
     deconstructTALP();
