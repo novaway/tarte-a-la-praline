@@ -69,11 +69,12 @@ function initTALP({
   };
 
   document.addEventListener('click', (e) => {
-    const $cookieModal:any = document.getElementById('js-cookie-modal')
-    if (document.querySelector('.talp-modal-overlay').classList.contains((e.target as any).classList)){
+    const $cookieModal:any = document.getElementById('js-cookie-modal');
+    const $modalOverlay:any = document.querySelector('.talp-modal-overlay');
+    if ($modalOverlay && $modalOverlay.classList.contains((e.target as any).classList)){
       $cookieModal.classList.remove('is-open');
       $cookieModal.ariaHidden = "true"
-    } 
+    }
   });
 
   const changeChoicesInModal = () =>{
@@ -105,7 +106,7 @@ function initTALP({
       })
     }
   }, 100)
-  
+
   setTimeout(() => {
     const $denyButton:HTMLLinkElement = document.querySelector('.js-cookie-button-deny')
     const $banner:HTMLElement = document.querySelector('.talp-cookie-banner')
@@ -159,7 +160,7 @@ function initTALP({
       return service;
     })
     .filter(service => service.value);
-    
+
   return allowCustomCookies(serviceAvailableInLocalStorage);
 }
 
